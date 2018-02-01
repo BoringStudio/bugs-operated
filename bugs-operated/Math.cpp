@@ -1,11 +1,11 @@
 #include "Math.h"
 
-vec2 normalized(const vec2 & v)
+vec2 math::normalized(const vec2 & v)
 {
 	return v / length(v);
 }
 
-vec2 rotate(const vec2 & v, float angle)
+vec2 math::rotate(const vec2 & v, float angle)
 {
 	vec2 result;
 	result.x = v.x * cosf(angle) - v.y * sinf(angle);
@@ -13,22 +13,22 @@ vec2 rotate(const vec2 & v, float angle)
 	return result;
 }
 
-vec2 ceil(const vec2 & v)
+vec2 math::ceil(const vec2 & v)
 {
 	return vec2(std::ceil(v.x), std::ceil(v.y));
 }
 
-float dot(const vec2 & a, const vec2 & b)
+float math::dot(const vec2 & a, const vec2 & b)
 {
 	return a.x * b.x + a.y * b.y;
 }
 
-float length(const vec2 & v)
+float math::length(const vec2 & v)
 {
 	return sqrt(v.x * v.x + v.y * v.y);
 }
 
-float clamp(float value, float min, float max)
+float math::clamp(float value, float min, float max)
 {
 	if (value < min) {
 		return min;
@@ -41,17 +41,17 @@ float clamp(float value, float min, float max)
 	}
 }
 
-float toRadians(float degrees)
+float math::toRadians(float degrees)
 {
 	return degrees * MATH_PI / 180.0f;
 }
 
-float toDegrees(float radians)
+float math::toDegrees(float radians)
 {
 	return radians * 180.0f / MATH_PI;
 }
 
-float interpolate(const std::vector<std::pair<float, float>>& curve, float x)
+float math::interpolate(const std::vector<std::pair<float, float>>& curve, float x)
 {
 	if (x > curve.back().first) {
 		return curve.back().second;
@@ -73,7 +73,7 @@ float interpolate(const std::vector<std::pair<float, float>>& curve, float x)
 	return right->second + (left->second - right->second) * (x - right->first) / (left->first - right->first);
 }
 
-float scalarProjection(const vec2 & a, const vec2 & b)
+float math::scalarProjection(const vec2 & a, const vec2 & b)
 {
 	float len = length(a);
 	if (len == 0.0f) {
@@ -84,7 +84,7 @@ float scalarProjection(const vec2 & a, const vec2 & b)
 	}
 }
 
-vec2 vectorProjection(const vec2 & a, const vec2 & b)
+vec2 math::vectorProjection(const vec2 & a, const vec2 & b)
 {
 	float len = length(a);
 	if (len == 0.0f) {
@@ -111,7 +111,7 @@ bool middle(float a, float b, float c)
 	}
 }
 
-bool intersect(const vec2 & a1, const vec2 & a2, const vec2 & b1, const vec2 & b2)
+bool math::intersect(const vec2 & a1, const vec2 & a2, const vec2 & b1, const vec2 & b2)
 {
 	if ((CCW(a1, a2, b1) * CCW(a1, a2, b2) < 0) &&
 		(CCW(b1, b2, a1) * CCW(b1, b2, a2) < 0))

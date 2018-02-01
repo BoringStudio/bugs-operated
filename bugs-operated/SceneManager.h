@@ -50,6 +50,8 @@ class SceneManager
 {
 public:
 	// Adds new scene on top of the stack
+	// T - Scene child class type
+	// Args - Scene child class constructor arguments
 	template <class T, class... Args>
 	static void addScene(Args&&... args)
 	{
@@ -66,6 +68,8 @@ public:
 	}
 
 	// Deletes top scene and add new scene at once
+	// T - Scene child class type
+	// Args - Scene child class constructor arguments
 	template <class T, class... Args>
 	static void changeScene(Args&&... args)
 	{

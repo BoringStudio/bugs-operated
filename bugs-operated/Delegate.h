@@ -10,6 +10,8 @@ public:
 	virtual T call() = 0;
 };
 
+// Function with delegate call
+// Explain: you create a function, pass there parameters, but call after some time
 template <class T, class... Args>
 class FunctionDelegate : Delegate<T>
 {
@@ -29,9 +31,15 @@ public:
 	{
 	}
 
+	// Calls function with arguments, which were specified befor
 	T call() override
 	{
 		return call(gen_seq<sizeof...(Args)>{});
+	}
+
+	// Updates function arguments values
+	void updateArguments(Args&&... args) {
+		m_arguments = { std::forward<Args>(args)... };
 	}
 
 private:

@@ -2,9 +2,9 @@
 
 #include <vector>
 
-#include <SFML/Graphics/Texture.hpp>
 #include "Math.h"
 
+// Sprite animation data
 class Animation
 {
 public:

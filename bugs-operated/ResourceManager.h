@@ -10,15 +10,19 @@
 class ResourceManager
 {
 public:
+	// Initializes helper objects
+	/// Currently does nothing)
 	static void init() {}
 		
-	// Loads information about all assets
+	// Loads information about all assets from file
 	static void init(const std::string& path);
 
 	// Clears up all resources
 	static void close();
 
 	// Attaches resource factory to specified name
+	// T - AbstractFactory child class type
+	// Args - AbstractFactory child class constructor arguments
 	template <class T, class... Args>
 	static void bind(const std::string& name, Args&&... args)
 	{
@@ -36,6 +40,7 @@ public:
 	}
 
 	// Detaches resource factory from specified name
+	// T - Stored type
 	template <class T>
 	static void unbind(const std::string& name)
 	{
@@ -49,6 +54,7 @@ public:
 
 	// Returns resource of specified name and type
 	// If there is no such resource nullptr will be returned
+	// T - Stored type
 	template <class T>
 	static T* get(const std::string& name)
 	{

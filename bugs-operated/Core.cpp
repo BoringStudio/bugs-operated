@@ -25,8 +25,8 @@ void Core::init(const Parameters& parameters)
 	m_window.setActive(true);
 
 	ResourceManager::init();
-	FileManager::init<DefaultFileSystem>();
 	CursorManager::init(m_window.getSystemHandle());
+	FileManager::init<DefaultFileSystem>();
 
 	m_isInitialized = true;
 }

@@ -8,7 +8,9 @@ class AbstractFileSystem;
 class FileManager
 {
 public:
-	// initializes filesystem with specified FileSystem in template argument
+	// Initializes filesystem with specified FileSystem in template argument
+	// T - AbstractFileSystem child class type
+	// Args - AbstractFileSystem child class constructor arguments
 	template <class T, class... Args>
 	static void init(Args&&... args)
 	{
@@ -18,8 +20,12 @@ public:
 		m_fileSystem = std::make_unique<T>(std::forward(args)...);
 	}
 
+	// Cleares up current filesystem object
 	static void close();
 
+	// Tries to open specified file
+	// Returns vector of bytes if success
+	// Throws std::runtime_error if failed
 	static std::vector<char> open(const std::string& filename);
 
 private:
@@ -27,6 +33,7 @@ private:
 };
 
 
+// Base class for file sytem
 class AbstractFileSystem
 {
 public:
@@ -35,7 +42,7 @@ public:
 	virtual std::vector<char> open(const std::string& filename) const = 0;
 };
 
-// Filesystem which uses simple files
+// Filesystem which uses OS
 class DefaultFileSystem : public AbstractFileSystem
 {
 public:

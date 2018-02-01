@@ -24,8 +24,8 @@ public:
 		Parameters() : title("game"), width(800), height(600), fullscreen(false), vsync(true) {}
 
 		std::string title;
-		size_t width;
-		size_t height;
+		unsigned int width;
+		unsigned int height;
 		bool fullscreen;
 		bool vsync;
 	};
@@ -42,6 +42,7 @@ public:
 	// Stops game loop
 	static void stop();
 
+	// Returns SFML window
 	static sf::RenderWindow& getWindow();
 
 private:

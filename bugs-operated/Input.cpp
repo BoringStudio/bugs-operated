@@ -11,13 +11,6 @@ std::bitset<MouseButton::ButtonCount> Input::m_lastMouseStates;
 sf::Vector2i Input::m_currentCursorPosition = sf::Mouse::getPosition();
 sf::Vector2i Input::m_lastCursorPosition = sf::Mouse::getPosition();
 
-void Input::reset()
-{
-	m_lastKeyStates = m_currentKeyStates;
-	m_lastMouseStates = m_currentMouseStates;
-	m_lastCursorPosition = m_currentCursorPosition;
-}
-
 bool Input::getKey(Key keyCode)
 {
 	if (keyCode < Key::KeyCount) {
@@ -103,4 +96,11 @@ vec2 Input::getMouseDeltaPosition()
 void Input::setCursorVisible(bool visible)
 {
 	Core::getWindow().setMouseCursorVisible(visible);
+}
+
+void Input::reset()
+{
+	m_lastKeyStates = m_currentKeyStates;
+	m_lastMouseStates = m_currentMouseStates;
+	m_lastCursorPosition = m_currentCursorPosition;
 }

@@ -16,23 +16,34 @@
 #include <X11/Xlib.h>
 #endif
 
+// Static class to manipulate cursor state
 class CursorManager
 {
 public:
-	enum Type { 
+	enum CursorStyle { 
 		WAIT, 
 		TEXT, 
 		NORMAL, 
 		HAND,
 
-		TYPE_COUNT
+		STYLE_COUNT
 	};
 
+	// Initializes system objects
+	// Must be called before using 'setStyle' function
 	static void init(const sf::WindowHandle& window_handle);
+
+	// Cleares up cursor system objects
 	static void close();
 
-	static void setStyle(const Type type);
+	// Changes current cursor style to specified
+	static void setStyle(const CursorStyle type);
+
+	// Returns current cursor style
+	static CursorStyle getStyle();
+
 private:
+	static CursorStyle m_currentStyle;
 	static sf::WindowHandle m_windowHandle;
 
 #ifdef SFML_SYSTEM_WINDOWS

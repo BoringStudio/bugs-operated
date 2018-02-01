@@ -19,34 +19,38 @@ using ivec3 = sf::Vector3i;
 using rect = sf::FloatRect;
 using recti = sf::IntRect;
 
-vec2 normalized(const vec2& v);
-
-vec2 rotate(const vec2& v, float angle);
-
-vec2 ceil(const vec2& v);
-
-float dot(const vec2& a, const vec2& b);
-
-float length(const vec2& v);
-
-float clamp(float value, float min, float max);
-
-float toRadians(float degrees);
-
-float toDegrees(float radians);
-
-float interpolate(const std::vector<std::pair<float, float>>& curve, float x);
-
-template <typename T>
-int sign(T val)
+namespace math
 {
-	return (T(0) < val) - (val < T(0));
+	vec2 normalized(const vec2& v);
+
+	vec2 rotate(const vec2& v, float angle);
+
+	vec2 ceil(const vec2& v);
+
+	float dot(const vec2& a, const vec2& b);
+
+	float length(const vec2& v);
+
+	float clamp(float value, float min, float max);
+
+	float toRadians(float degrees);
+
+	float toDegrees(float radians);
+
+	float interpolate(const std::vector<std::pair<float, float>>& curve, float x);
+
+	template <typename T>
+	int sign(T val)
+	{
+		return (T(0) < val) - (val < T(0));
+	}
+
+	// scalar projection b onto a
+	float scalarProjection(const vec2& a, const vec2& b);
+
+	// vector projection b onto a
+	vec2 vectorProjection(const vec2& a, const vec2& b);
+
+	// Checks intersection between two lines
+	bool intersect(const vec2& a1, const vec2& a2, const vec2& b1, const vec2& b2);
 }
-
-// scalar projection b onto a
-float scalarProjection(const vec2& a, const vec2& b);
-
-// vector projection b onto a
-vec2 vectorProjection(const vec2& a, const vec2& b);
-
-bool intersect(const vec2& a1, const vec2& a2, const vec2& b1, const vec2& b2);
