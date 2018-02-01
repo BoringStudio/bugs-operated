@@ -1,0 +1,160 @@
+#include "Core.h"
+
+bool Core::m_isInitialized = false;
+bool Core::m_isRunning = false;
+sf::RenderWindow Core::m_window;
+
+void Core::init(const Parameters& parameters)
+{
+	Log::init();
+
+	sf::ContextSettings settings;
+	settings.majorVersion = 3;
+    settings.minorVersion = 2;
+	settings.antialiasingLevel = 0;
+	settings.depthBits = 24;
+	settings.stencilBits = 8;
+
+	sf::Uint32 windowStyle = sf::Style::Titlebar | sf::Style::Close;
+	if (parameters.fullscreen) {
+		windowStyle |= sf::Style::Fullscreen;
+	}
+
+    m_window.create(sf::VideoMode(parameters.width, parameters.height), parameters.title, windowStyle, settings);
+	m_window.setVerticalSyncEnabled(parameters.vsync);
+	m_window.setActive(true);
+
+	ResourceManager::init();
+	FileManager::init<DefaultFileSystem>();
+	CursorManager::init(m_window.getSystemHandle());
+
+	m_isInitialized = true;
+}
+
+void Core::close()
+{
+	if (m_isInitialized == false || m_isRunning == true) {
+		return;
+	}
+
+	SceneManager::close();
+	CursorManager::close();
+	ResourceManager::close();
+	FileManager::close();
+
+	m_window.close();
+
+	m_isRunning = false;
+	m_isInitialized = false;
+}
+
+void Core::run()
+{
+	if (m_isInitialized == false || m_isRunning == true) {
+		return;
+	}
+
+	m_isRunning = true;
+
+	sf::Clock timer;
+
+	while (m_isRunning) {
+		float dt = timer.restart().asSeconds();
+
+		// Handle window and keyboard events
+		handleEvents();
+
+		Scene* currentScene;
+
+		if (m_isRunning == true &&
+			(currentScene = SceneManager::getCurrentScene()) != nullptr) 
+		{
+			currentScene->onUpdate(dt);
+		}
+
+		if (m_isRunning == true && 
+			(currentScene = SceneManager::getCurrentScene()) != nullptr) 
+		{
+			currentScene->onDraw(dt);
+		}
+
+		m_window.display();
+
+		m_isRunning &= SceneManager::getCurrentScene() != nullptr;
+	}
+}
+
+void Core::stop()
+{
+	m_isRunning = false;
+}
+
+sf::RenderWindow& Core::getWindow()
+{
+	return m_window;
+}
+
+void Core::handleEvents()
+{
+	Input::reset();
+
+	sf::Event e;
+	while (m_window.pollEvent(e)) {
+		switch (e.type) {
+		case sf::Event::Closed:
+			stop();
+			break;
+			
+		case sf::Event::MouseMoved:
+			Input::m_currentCursorPosition.x = e.mouseMove.x;
+			Input::m_currentCursorPosition.y = e.mouseMove.y;
+			break;
+
+		case sf::Event::KeyPressed:
+			Input::m_currentKeyStates.set(e.key.code, true);
+			break;
+
+		case sf::Event::KeyReleased:
+			Input::m_currentKeyStates.set(e.key.code, false);
+			break;
+
+		case sf::Event::MouseButtonPressed:
+			Input::m_currentMouseStates.set(e.mouseButton.button, true);
+			break;
+
+		case sf::Event::MouseButtonReleased:
+			Input::m_currentMouseStates.set(e.mouseButton.button, false);
+			break;
+
+		case sf::Event::Resized:
+			if (SceneManager::hasScenes()) {
+				SceneManager::getCurrentScene()->onResize(vec2(
+					static_cast<float>(e.size.width),
+					static_cast<float>(e.size.height)
+				));
+			}
+			break;
+
+		case sf::Event::GainedFocus:
+			if (SceneManager::hasScenes()) {
+				SceneManager::getCurrentScene()->onFocusGained();
+			}
+			break;
+
+		case sf::Event::LostFocus:
+			if (SceneManager::hasScenes()) {
+				SceneManager::getCurrentScene()->onFocusLost();
+			}
+			break;
+
+		default:
+			break;
+		}
+
+		/*
+		if (SceneManager::hasScenes()) {
+			// Handle GUI update here
+		}
+		*/
+	}
+}
