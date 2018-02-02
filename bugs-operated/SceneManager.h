@@ -3,6 +3,8 @@
 #include <memory>
 #include <stack>
 
+#include <SFGUI/Window.hpp>
+
 #include "Math.h"
 
 // Base 
@@ -42,6 +44,8 @@ public:
 
 protected:
 	friend class Core;
+
+	sfg::Window::Ptr m_guiWindow;
 };
 
 

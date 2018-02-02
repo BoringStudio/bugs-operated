@@ -1,6 +1,6 @@
 #include "Core.h"
 
-#include "Game.h"
+#include "MainMenu.h"
 
 int main() {
 	Core::Parameters parameters;
@@ -11,7 +11,7 @@ int main() {
 	Core::init(parameters);
 
 	try {
-		SceneManager::addScene<Game>();
+		SceneManager::addScene<MainMenu>();
 
 		Core::run();
 	}

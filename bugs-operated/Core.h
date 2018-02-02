@@ -2,6 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
+#include <SFGUI/Desktop.hpp>
+#include <SFGUI/SFGUI.hpp>
+
 #include "ResourceManager.h"
 #include "CursorManager.h"
 #include "SceneManager.h"
@@ -45,6 +48,9 @@ public:
 	// Returns SFML window
 	static sf::RenderWindow& getWindow();
 
+	static sfg::SFGUI* getGui();
+	static sfg::Desktop* getGuiDesktop();
+
 private:
 	static void handleEvents();
 
@@ -52,4 +58,7 @@ private:
 	static bool m_isRunning;
 
 	static sf::RenderWindow m_window;
+
+	static std::unique_ptr<sfg::SFGUI> m_gui;
+	static std::unique_ptr<sfg::Desktop> m_guiDesktop;
 };
