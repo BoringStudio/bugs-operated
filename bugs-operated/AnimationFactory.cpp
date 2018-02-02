@@ -60,7 +60,7 @@ void* AnimationFactory::load()
         if (metaData.is_object()) {
             json imageData = metaData["image"];
             if (imageData.is_string()) {
-                spriteSheetName = imageData;
+                spriteSheetName = imageData.get<std::string>();
             }
         }
         

@@ -8,9 +8,6 @@
 #ifdef _WIN32
 #include <windows.h>
 
-#ifdef SendMessage
-#undef SendMessage
-#endif
 #elif defined(__linux__)
 #include <X11/cursorfont.h>
 #include <X11/Xlib.h>
