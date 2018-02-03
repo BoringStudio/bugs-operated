@@ -1,5 +1,12 @@
 #include "Core.h"
 
+/*
+Ч Ўтурман, приборы!
+Ч 36!
+Ч „то 36?
+Ч ј что приборы?
+*/
+
 bool Core::m_isInitialized = false;
 bool Core::m_isRunning = false;
 sf::RenderWindow Core::m_window;

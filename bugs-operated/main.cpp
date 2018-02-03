@@ -2,6 +2,19 @@
 
 #include "MainMenu.h"
 
+/*
+                       _______________
+					   |             |
+      _                |   GOVNOKOD  |
+      \\       /\_/\   |_  __________|
+       \\_____< * \ *>   |/
+       /  ___  \__()/__
+       |_____\---\_____\
+
+   ( говорящий правду. сфинкс-енот )
+*/
+
+
 int main() {
 	Core::Parameters parameters;
 	parameters.width = 1024;
