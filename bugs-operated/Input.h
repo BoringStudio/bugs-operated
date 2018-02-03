@@ -47,7 +47,9 @@ public:
 private:
 	friend class Core;
 
-	static void reset();
+	static void update();
+
+	static void handleEvent(const sf::Event& e);
 
 	static std::bitset<Key::KeyCount> m_currentKeyStates;
 	static std::bitset<Key::KeyCount> m_lastKeyStates;
