@@ -98,9 +98,38 @@ void Input::setCursorVisible(bool visible)
 	Core::getWindow().setMouseCursorVisible(visible);
 }
 
-void Input::reset()
+void Input::update()
 {
 	m_lastKeyStates = m_currentKeyStates;
 	m_lastMouseStates = m_currentMouseStates;
 	m_lastCursorPosition = m_currentCursorPosition;
+}
+
+void Input::handleEvent(const sf::Event & e)
+{
+	switch (e.type)
+	{
+	case sf::Event::MouseMoved:
+		m_currentCursorPosition.x = e.mouseMove.x;
+		m_currentCursorPosition.y = e.mouseMove.y;
+		break;
+
+	case sf::Event::KeyPressed:
+		m_currentKeyStates.set(e.key.code, true);
+		break;
+
+	case sf::Event::KeyReleased:
+		m_currentKeyStates.set(e.key.code, false);
+		break;
+
+	case sf::Event::MouseButtonPressed:
+		m_currentMouseStates.set(e.mouseButton.button, true);
+		break;
+
+	case sf::Event::MouseButtonReleased:
+		m_currentMouseStates.set(e.mouseButton.button, false);
+		break;
+	default:
+		break;
+	}
 }
