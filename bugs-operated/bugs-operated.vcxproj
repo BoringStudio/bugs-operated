@@ -172,6 +172,7 @@
     <ClCompile Include="FontFactory.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Intro.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="FontFactory.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Intro.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Math.h" />

@@ -65,7 +65,7 @@ public:
 	static T* get(const std::string& name)
 	{
 		auto key = std::make_pair(name, std::type_index(typeid(T)));
-
+		
 		auto it = m_factories.find(key);
 		if (it == m_factories.end()) {
 			return nullptr;
