@@ -1,15 +1,16 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
-#include <SFML/Graphics/Font.hpp>
+#include <SFML/Audio/Music.hpp>
 
 #include "AbstractFactory.h"
 
-class FontFactory : public AbstractFactory
+class MusicFacroty : public AbstractFactory
 {
 public:
-	FontFactory(const std::string& filename);
+	MusicFacroty(const std::string& filename);
 
 	void* load() override;
 	void clear() override;
@@ -17,6 +18,6 @@ public:
 private:
 	std::string m_filename;
 
-	std::unique_ptr<sf::Font> m_data;
+	std::unique_ptr<sf::Music> m_data;
 	std::vector<char> m_buffer;
 };

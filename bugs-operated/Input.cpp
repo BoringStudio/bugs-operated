@@ -13,7 +13,7 @@ sf::Vector2i Input::m_lastCursorPosition = sf::Mouse::getPosition();
 
 bool Input::getKey(Key keyCode)
 {
-	if (keyCode < Key::KeyCount) {
+	if (keyCode < Key::KeyCount && keyCode > Key::Unknown) {
 		return m_currentKeyStates.test(static_cast<size_t>(keyCode));
 	}
 	else {
@@ -23,7 +23,7 @@ bool Input::getKey(Key keyCode)
 
 bool Input::getKeyDown(Key keyCode)
 {
-	if (keyCode < Key::KeyCount) {
+	if (keyCode < Key::KeyCount && keyCode > Key::Unknown) {
 		return !m_lastKeyStates.test(static_cast<size_t>(keyCode)) && 
 				m_currentKeyStates.test(static_cast<size_t>(keyCode));
 	}
@@ -34,13 +34,28 @@ bool Input::getKeyDown(Key keyCode)
 
 bool Input::getKeyUp(Key keyCode)
 {
-	if (keyCode < Key::KeyCount) {
+	if (keyCode < Key::KeyCount && keyCode > Key::Unknown) {
 		return m_lastKeyStates.test(static_cast<size_t>(keyCode)) && 
 				!m_currentKeyStates.test(static_cast<size_t>(keyCode));
 	}
 	else {
 		return false;
 	}
+}
+
+bool Input::getAnyKey()
+{
+	return m_currentKeyStates.any();
+}
+
+bool Input::getAnyKeyDown()
+{
+	return !m_lastKeyStates.any() && m_currentKeyStates.any();
+}
+
+bool Input::getAnyKeyUp()
+{
+	return m_lastKeyStates.any() && !m_currentKeyStates.any();
 }
 
 bool Input::getMouse(MouseButton mouseCode)
@@ -73,6 +88,21 @@ bool Input::getMouseUp(MouseButton mouseCode)
 	else {
 		return false;
 	}
+}
+
+bool Input::getAnyMouse()
+{
+	return m_currentMouseStates.any();
+}
+
+bool Input::getAnyMouseDown()
+{
+	return !m_lastMouseStates.any() && m_currentMouseStates.any();
+}
+
+bool Input::getAnyMouseUp()
+{
+	return m_lastMouseStates.any() && !m_currentMouseStates.any();
 }
 
 void Input::setMousePosition(const vec2 & pos)

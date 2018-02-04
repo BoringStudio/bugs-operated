@@ -38,7 +38,7 @@ public:
 			m_factories[key] = std::move(factory);
 		}
 		else {
-			Log::write("Same resource was already binded:", name, ",", key.second.hash_code());
+			Log::write("Same resource was already binded: \"" + name + "\", \"" + key.second.name() + "\"");
 		}
 	}
 

@@ -11,6 +11,8 @@ using MouseButton = sf::Mouse::Button;
 class Input
 {
 public:
+	/*------- State specified key -------*/
+
 	// Returns true if specified key is currently pressed
 	static bool getKey(Key keyCode);
 
@@ -20,6 +22,18 @@ public:
 	// Returns true if specified key was released after the last frame
 	static bool getKeyUp(Key keyCode);
 
+	/*------- State any key -------*/
+
+	// Returns true if any key is currently pressed
+	static bool getAnyKey();
+
+	// Returns true if any key was pressed after the last frame
+	static bool getAnyKeyDown();
+
+	// Returns true if any key was released after the last frame
+	static bool getAnyKeyUp();
+
+	/*------- State specified mouse button -------*/
 
 	// Returns true if specified mouse button is currently pressed
 	static bool getMouse(MouseButton mouseCode);
@@ -30,6 +44,18 @@ public:
 	// Returns true if specified mouse button was released after the last frame
 	static bool getMouseUp(MouseButton mouseCode);
 
+	/*------- State any mouse button -------*/
+
+	// Returns true if any mouse button is currently pressed
+	static bool getAnyMouse();
+
+	// Returns true if any mouse button was pressed after the last frame
+	static bool getAnyMouseDown();
+
+	// Returns true if any mouse button was released after the last frame
+	static bool getAnyMouseUp();
+
+	/*------- State mouse position -------*/
 
 	// Sets mouse position relative to window top left corner
 	static void setMousePosition(const vec2& pos);
