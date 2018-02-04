@@ -8,6 +8,9 @@
 
 void Game::onInit()
 {
+	ResourceManager::bind<MapFactory>("planet_base", "maps/planet_base.json");
+
+	m_map = ResourceManager::get<Map>("planet_base");
 }
 
 void Game::onClose()

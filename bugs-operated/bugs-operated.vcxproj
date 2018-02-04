@@ -176,6 +176,8 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="MapFactory.cpp" />
+    <ClCompile Include="MapLoader.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="MusicFactory.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
@@ -199,6 +201,8 @@
     <ClInclude Include="Intro.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="MapFactory.h" />
     <ClInclude Include="MapLoader.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="MusicFactory.h" />

@@ -25,28 +25,28 @@ void* AnimationFactory::load()
             animationData = json::parse(data.begin(), data.end());
         }
 
-        json framesData = animationData["frames"];
+        json framesData = animationData.value("frames", json());
         if (framesData.is_array()) {
             for (const auto& frameData : framesData) {
                 if (frameData.is_object()) {
                     sf::IntRect frame;
                     
-                    json xData = frameData["x"];
+                    json xData = frameData.value("x", json());
                     if (xData.is_number_integer()) {
                         frame.left = xData;
                     }
                     
-                    json yData = frameData["y"];
+                    json yData = frameData.value("y", json());
                     if (yData.is_number_integer()) {
                         frame.top = yData;
                     }
                     
-                    json wData = frameData["w"];
+                    json wData = frameData.value("w", json());
                     if (wData.is_number_integer()) {
                         frame.width = wData;
                     }
                     
-                    json hData = frameData["h"];
+                    json hData = frameData.value("h", json());
                     if (hData.is_number_integer()) {
                         frame.height = hData;
                     }
@@ -56,9 +56,9 @@ void* AnimationFactory::load()
             }
         }
         
-        json metaData = animationData["meta"];
+        json metaData = animationData.value("meta", json());
         if (metaData.is_object()) {
-            json imageData = metaData["image"];
+            json imageData = metaData.value("image", json());
             if (imageData.is_string()) {
                 spriteSheetName = imageData.get<std::string>();
             }

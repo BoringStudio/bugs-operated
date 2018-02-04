@@ -56,6 +56,10 @@
     <ClCompile Include="MusicFactory.cpp">
       <Filter>Core\Resources\Music</Filter>
     </ClCompile>
+    <ClCompile Include="MapLoader.cpp">
+      <Filter>Core\Resources\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MapFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -91,8 +95,8 @@
     <Filter Include="Game\Scenes">
       <UniqueIdentifier>{c512f2a7-5ca4-4c71-a4b7-3a28da1ea80e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\MapLoader">
-      <UniqueIdentifier>{ffdb3d8e-046a-4808-bb9c-968411b242d0}</UniqueIdentifier>
+    <Filter Include="Core\Resources\Map">
+      <UniqueIdentifier>{712b2c78-86b7-40ab-a56e-93eb5f3cbdae}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,8 +163,14 @@
     <ClInclude Include="SoundBufferFactory.h">
       <Filter>Core\Resources\Sound</Filter>
     </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Core\Resources\Map</Filter>
+    </ClInclude>
     <ClInclude Include="MapLoader.h">
-      <Filter>Game\MapLoader</Filter>
+      <Filter>Core\Resources\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MapFactory.h">
+      <Filter>Core\Resources\Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

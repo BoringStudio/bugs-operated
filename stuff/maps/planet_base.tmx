@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#1e1e1e" nextobjectid="1">
+ <properties>
+  <property name="test_bool" type="bool" value="true"/>
+  <property name="test_color" type="color" value="#ffff5500"/>
+  <property name="test_float" type="float" value="123.123"/>
+  <property name="test_int" type="int" value="123123123"/>
+  <property name="test_string" value="Hello"/>
+ </properties>
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
+  <image source="spritesheet.png" width="1024" height="1024"/>
+  <tile id="138">
+   <objectgroup draworder="index">
+    <object id="1" x="4" y="18" width="22" height="9"/>
+   </objectgroup>
+  </tile>
+  <tile id="192">
+   <objectgroup draworder="index">
+    <object id="2" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="193">
+   <objectgroup draworder="index">
+    <object id="3" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="225">
+   <animation>
+    <frame tileid="192" duration="100"/>
+    <frame tileid="193" duration="100"/>
+    <frame tileid="194" duration="100"/>
+    <frame tileid="224" duration="100"/>
+    <frame tileid="225" duration="100"/>
+    <frame tileid="226" duration="100"/>
+    <frame tileid="256" duration="100"/>
+    <frame tileid="257" duration="100"/>
+    <frame tileid="258" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="1025" name="doors" tilewidth="32" tileheight="32" tilecount="100" columns="10">
+  <image source="doors.png" width="320" height="320"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="10" duration="100"/>
+    <frame tileid="20" duration="100"/>
+    <frame tileid="41" duration="100"/>
+    <frame tileid="40" duration="100"/>
+    <frame tileid="42" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <layer name="ground" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt00EKwlAMRdGO3f+CHcpvC0oTzZOeA9nAu2TbAAAAAAAAAAAAAAAA/svj4tHnagNt+nW30Oa6b7fQ5HO/aqHLexMtNDk32UKPo+kemrxMd9BjNd1Bj1XndnrUde6nR50eWfTIUtlwv6MeddUe+z31qOnq0flndzbdQY/VdAc9jrTIokcWLfLokUeLLFpk0iKTFrm0yKQDAAAAAAAAAAAAAAAAAAAAd/EEIo8fuQ==
+  </data>
+ </layer>
+ <layer name="base" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1k9Kw0AUB+AX0+Kip+g/8RriRUp70tJFdeMhBJd6BickodN0nQza74MfeczqMY95JAIAAAAAAAAAAAAAAAAAAAD+lmPKOWVbXectO/8o2+JdqdJ91ynLVK+6rLPzh1R/Fe3wf/vM0qi61Cn7LP35Y5jHmIbzaPbVKdp3sOl21XP3ffI+Rjecx3u0e+klLrtqnu2v1zCPKTV33eyl4a7q60OYx5S+4/bfapif0k1CQYtZ7Er3AAAAAAAAAAAAAAAAAAAAAAAAAABM6xc2rh2v
+  </data>
+ </layer>
+ <layer name="computers" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1MERAAAEwDD7M7QxHJIJ+moEAAAAAAAAAAAAAAAAAAAA3FLTAU/ldAAs4E8AAAAAAAAAAAAAAAAAAAAAAAAAAACwQwN0rwGk
+  </data>
+ </layer>
+ <group name="doors_group">
+  <layer name="doors_top_parts" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJzt1CEKADAMBMEU4vr///YDEYFAiZiRK09cBAAAAAAAAAAAAAAAAAAAAMDMyV7jj1tsXzXAV23jqwAAAAAAAAAAAAAAAAAAAAAAAAAAgC0eaIMAPQ==
+  </data>
+  </layer>
+  <layer name="doors_bottom_parts" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJzt1KERACAMBMEIWoim/y5pICIqw8CuPPniIwAAAAAAAAAAAAAAAAAAAAB4Sa5eY8Yutq8a4Ktu46sAAAAAAAAAAAAAAAAAAAAAAAAAAPjZARbKALU=
+  </data>
+  </layer>
+ </group>
+</map>

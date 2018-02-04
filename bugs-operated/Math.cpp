@@ -145,6 +145,49 @@ bool math::intersect(const vec2 & a1, const vec2 & a2, const vec2 & b1, const ve
 		(CCW(b1, b2, a2) == 0 && middle(b1.x, b2.x, a2.x) && middle(b1.y, b2.y, a2.y));
 }
 
+
+sf::Color math::colorFromHex(const std::string & hex)
+{
+	size_t hexSize = hex.size();
+	bool hasAlpha = hexSize == 9;
+	if (hexSize != 7 && !hasAlpha) {
+		return sf::Color::Black;
+	}
+
+	sf::Uint8 channels[4] = {};
+
+	signed char currentChannel = 0;
+	if (!hasAlpha) {
+		channels[0] = 255;
+		currentChannel = 1;
+	}
+
+	for (signed char i = 1; i < hex.size(); ++i) {
+		char symbol = tolower(hex[i]);
+		if (isxdigit(symbol)) {
+			char number = 0;
+			if (isdigit(symbol)) {
+				number = symbol - '0';
+			}
+			else {
+				number = 10 + symbol - 'a';
+			}
+
+			if (i % 2 == 1) {
+				channels[currentChannel] += number * 16;
+			}
+			else {
+				channels[currentChannel++] += number;
+			}
+		}
+		else {
+			return sf::Color::Black;
+		}
+	}
+
+	return sf::Color(channels[1], channels[2], channels[3], channels[0]);
+}
+
 static const std::string base64Chars =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	"abcdefghijklmnopqrstuvwxyz"

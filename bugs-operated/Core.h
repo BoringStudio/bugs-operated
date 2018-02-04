@@ -10,9 +10,12 @@
 #include "SceneManager.h"
 #include "FileManager.h"
 
-#include "TextureFactory.h"
+#include "SoundBufferFactory.h"
 #include "AnimationFactory.h"
+#include "TextureFactory.h"
+#include "MusicFactory.h"
 #include "FontFactory.h"
+#include "MapFactory.h"
 
 #include "Delegate.h"
 #include "Input.h"
@@ -51,6 +54,9 @@ public:
 	static sfg::SFGUI* getGui();
 	static sfg::Desktop* getGuiDesktop();
 
+	// Returns millisecond count since application start
+	static unsigned long long getGlobalTimer();
+
 private:
 	static void handleEvents();
 
@@ -61,4 +67,6 @@ private:
 
 	static std::unique_ptr<sfg::SFGUI> m_gui;
 	static std::unique_ptr<sfg::Desktop> m_guiDesktop;
+
+	static unsigned long long m_globalTimer;
 };
