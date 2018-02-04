@@ -18,4 +18,5 @@ private:
 	std::string m_filename;
 
 	std::unique_ptr<sf::Font> m_data;
+	std::vector<char> m_fontData;
 };
