@@ -42,13 +42,13 @@
       <Filter>Core\Stuff</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Scenes</Filter>
+      <Filter>Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
-      <Filter>Scenes</Filter>
+      <Filter>Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Intro.cpp">
-      <Filter>Scenes</Filter>
+      <Filter>Game\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="SoundBufferFactory.cpp">
       <Filter>Core\Resources\Sound</Filter>
@@ -85,8 +85,14 @@
     <Filter Include="Core\Resources\Music">
       <UniqueIdentifier>{a4899431-e71e-4aff-85d6-7792fcea900d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Scenes">
+    <Filter Include="Game">
+      <UniqueIdentifier>{0cc26151-d86c-4244-82c3-5a54c723dbe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scenes">
       <UniqueIdentifier>{c512f2a7-5ca4-4c71-a4b7-3a28da1ea80e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\MapLoader">
+      <UniqueIdentifier>{ffdb3d8e-046a-4808-bb9c-968411b242d0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -136,22 +142,25 @@
       <Filter>Core\Stuff</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Scenes</Filter>
+      <Filter>Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="AbstractFactory.h">
       <Filter>Core\Stuff</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
-      <Filter>Scenes</Filter>
+      <Filter>Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Intro.h">
-      <Filter>Scenes</Filter>
+      <Filter>Game\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="MusicFactory.h">
       <Filter>Core\Resources\Music</Filter>
     </ClInclude>
     <ClInclude Include="SoundBufferFactory.h">
       <Filter>Core\Resources\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="MapLoader.h">
+      <Filter>Game\MapLoader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

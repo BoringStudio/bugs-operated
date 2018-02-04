@@ -58,4 +58,10 @@ namespace math
 
 	// Checks intersection between two lines
 	bool intersect(const vec2& a1, const vec2& a2, const vec2& b1, const vec2& b2);
+
+	// Decodes string in base64
+	std::string decodeBase64(const std::string& encodedString);
+
+	// Decompresses zlib compressed buffer
+	std::vector<char> decompress(const std::vector<char>& buffer);
 }

@@ -1,5 +1,10 @@
 #include "Math.h"
 
+#include <string>
+#include <cctype>
+
+#include <zlib.h>
+
 vec2 math::normalized(const vec2 & v)
 {
 	return v / length(v);
@@ -138,4 +143,106 @@ bool math::intersect(const vec2 & a1, const vec2 & a2, const vec2 & b1, const ve
 		(CCW(a1, a2, b2) == 0 && middle(a1.x, a2.x, b2.x) && middle(a1.y, a2.y, b2.y)) ||
 		(CCW(b1, b2, a1) == 0 && middle(b1.x, b2.x, a1.x) && middle(b1.y, b2.y, a1.y)) ||
 		(CCW(b1, b2, a2) == 0 && middle(b1.x, b2.x, a2.x) && middle(b1.y, b2.y, a2.y));
+}
+
+static const std::string base64Chars =
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	"abcdefghijklmnopqrstuvwxyz"
+	"0123456789+/";
+
+bool isBase64(char c)
+{
+	return (isalnum(c) || (c == '+') || (c == '/'));
+}
+
+std::string math::decodeBase64(const std::string & encodedString)
+{
+	size_t encodedLength = encodedString.size();
+	size_t currentSymbol = 0;
+	unsigned char buffer4bit[4], buffer3bit[3];
+	std::string ret;
+
+	int i = 0;
+	while (--encodedLength && 
+		(encodedString[currentSymbol] != '=') && 
+		isBase64(encodedString[currentSymbol])) 
+	{
+		buffer4bit[i++] = encodedString[currentSymbol]; 
+		++currentSymbol;
+
+		if (i == 4) {
+			for (i = 0; i < 4; ++i) {
+				buffer4bit[i] = static_cast<unsigned char>(base64Chars.find(buffer4bit[i]));
+			}
+
+			buffer3bit[0] = (buffer4bit[0] << 2) + ((buffer4bit[1] & 0x30) >> 4);
+			buffer3bit[1] = ((buffer4bit[1] & 0xf) << 4) + ((buffer4bit[2] & 0x3c) >> 2);
+			buffer3bit[2] = ((buffer4bit[2] & 0x3) << 6) + buffer4bit[3];
+
+			for (i = 0; i < 3; ++i) {
+				ret += buffer3bit[i];
+			}
+
+			i = 0;
+		}
+	}
+
+	if (i) {
+		for (int j = i; j < 4; ++j) {
+			buffer4bit[j] = 0;
+		}
+
+		for (int j = 0; j < 4; ++j) {
+			buffer4bit[j] = static_cast<unsigned char>(base64Chars.find(buffer4bit[j]));
+		}
+
+		buffer3bit[0] = (buffer4bit[0] << 2) + ((buffer4bit[1] & 0x30) >> 4);
+		buffer3bit[1] = ((buffer4bit[1] & 0xf) << 4) + ((buffer4bit[2] & 0x3c) >> 2);
+		buffer3bit[2] = ((buffer4bit[2] & 0x3) << 6) + buffer4bit[3];
+
+		for (int j = 0; j < i - 1; ++j) {
+			ret += buffer3bit[j];
+		}
+	}
+
+	return ret;
+}
+
+std::vector<char> math::decompress(const std::vector<char>& buffer)
+{
+	z_stream zs;
+	memset(&zs, 0, sizeof(zs));
+
+	if (inflateInit(&zs) != Z_OK) {
+		throw std::runtime_error("inflateInit failed while decompressing.");
+	}
+
+	zs.next_in = (Bytef*)buffer.data();
+	zs.avail_in = static_cast<uInt>(buffer.size());
+
+	int resultCode;
+	char chunk[32768];
+	std::vector<char> result;
+
+	do {
+		zs.next_out = reinterpret_cast<Bytef*>(chunk);
+		zs.avail_out = sizeof(chunk);
+
+		resultCode = inflate(&zs, 0);
+
+		if (result.size() < zs.total_out) {
+			size_t insertionSize = zs.total_out - result.size();
+
+			result.insert(result.end(), std::begin(chunk), std::begin(chunk) + insertionSize);
+		}
+
+	} while (resultCode == Z_OK);
+
+	inflateEnd(&zs);
+
+	if (resultCode != Z_STREAM_END && zs.msg != nullptr) {
+		throw std::runtime_error("zlib decompression failed: \"" + std::string(zs.msg) + "\"");
+	}
+
+	return result;
 }
