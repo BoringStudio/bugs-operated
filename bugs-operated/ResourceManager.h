@@ -54,7 +54,7 @@ public:
 			m_factories.erase(it);
 		}
 		else {
-			Log::write("There wasn't any resource to unbind with name:", name, ",", key.second.hash_code());
+			Log::write("There wasn't any resource to unbind with name: \"" + name + "\", \"" + key.second.name() + "\"");
 		}
 	}
 
@@ -68,7 +68,7 @@ public:
 		
 		auto it = m_factories.find(key);
 		if (it == m_factories.end()) {
-			return nullptr;
+			throw std::runtime_error("Unable to get resource: \"" + name + "\", \"" + key.second.name() + "\"");
 		}
 		else {
 			return reinterpret_cast<T*>(it->second->load());
