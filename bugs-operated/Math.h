@@ -6,6 +6,7 @@
 #include <SFML/System/Vector2.hpp>
 #include <SFML/System/Vector3.hpp>
 #include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics/Color.hpp>
 
 #include "Constants.h"
 
@@ -38,6 +39,10 @@ namespace math
 	float toDegrees(float radians);
 
 	float interpolate(const std::vector<std::pair<float, float>>& curve, float x);
+
+	vec3 lerp(const vec3& a, const vec3& b, float t);
+
+	sf::Color lerp(const sf::Color& a, const sf::Color& b, float t);
 
 	template <typename T>
 	int sign(T val)

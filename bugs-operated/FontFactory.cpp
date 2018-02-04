@@ -13,8 +13,8 @@ void * FontFactory::load()
 	if (m_data == nullptr) {
 		std::unique_ptr<sf::Font> font = std::make_unique<sf::Font>();
 
-		m_fontData = FileManager::open(m_filename);
-		if (!font->loadFromMemory(m_fontData.data(), m_fontData.size())) {
+		m_buffer = FileManager::open(m_filename);
+		if (!font->loadFromMemory(m_buffer.data(), m_buffer.size())) {
 			throw std::runtime_error("Unable to load font: \"" + m_filename + "\"");
 		}
 
@@ -27,5 +27,5 @@ void * FontFactory::load()
 void FontFactory::clear()
 {
 	m_data.reset(nullptr);
-	m_fontData.clear();
+	m_buffer.clear();
 }

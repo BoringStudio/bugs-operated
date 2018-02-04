@@ -73,6 +73,20 @@ float math::interpolate(const std::vector<std::pair<float, float>>& curve, float
 	return right->second + (left->second - right->second) * (x - right->first) / (left->first - right->first);
 }
 
+vec3 math::lerp(const vec3 & a, const vec3 & b, float t)
+{
+	return a * (1 - t) + b * t;
+}
+
+sf::Color math::lerp(const sf::Color & a, const sf::Color & b, float t)
+{
+	return sf::Color(
+		static_cast<sf::Uint8>(a.r * (1 - t) + b.r * t),
+		static_cast<sf::Uint8>(a.g * (1 - t) + b.g * t),
+		static_cast<sf::Uint8>(a.b * (1 - t) + b.b * t),
+		static_cast<sf::Uint8>(a.a * (1 - t) + b.a * t));
+}
+
 float math::scalarProjection(const vec2 & a, const vec2 & b)
 {
 	float len = length(a);

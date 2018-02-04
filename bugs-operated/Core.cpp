@@ -24,7 +24,7 @@ void Core::init(const Parameters& parameters)
 	settings.depthBits = 24;
 	settings.stencilBits = 8;
 
-	sf::Uint32 windowStyle = sf::Style::Titlebar | sf::Style::Close;
+	sf::Uint32 windowStyle = sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize;
 	if (parameters.fullscreen) {
 		windowStyle |= sf::Style::Fullscreen;
 	}

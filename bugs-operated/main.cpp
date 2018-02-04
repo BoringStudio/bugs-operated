@@ -1,6 +1,6 @@
 #include "Core.h"
 
-#include "MainMenu.h"
+#include "Intro.h"
 
 /*
                        _______________
@@ -24,7 +24,7 @@ int main() {
 	Core::init(parameters);
 
 	try {
-		SceneManager::addScene<MainMenu>();
+		SceneManager::addScene<Intro>();
 
 		Core::run();
 	}
