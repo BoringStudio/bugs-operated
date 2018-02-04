@@ -1,5 +1,6 @@
 #pragma once
 
+#include "SoundBufferFactory.h"
 #include "SceneManager.h"
 #include "FontFactory.h"
 
@@ -7,6 +8,7 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Audio/Sound.hpp>
 
 /*
                                         ``..--:/++oso+:.                        
@@ -109,10 +111,13 @@ public:
 
 private:
 	sf::RectangleShape m_introRect;
-	sf::RectangleShape m_blackScreen;
+
+	sf::Color m_currentClearColor;
 	sf::Color m_clearColor;
 
 	sf::Text m_studioName;
+
+	sf::Sound m_sound;
 
 	float m_speedDelay;
 	float m_alpha;
@@ -121,4 +126,5 @@ private:
 	float m_blackScreenDt;
 
 	bool m_hasEnableAnimation;
+	bool m_hasEnableBlackScreen;
 };

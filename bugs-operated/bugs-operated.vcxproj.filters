@@ -47,7 +47,9 @@
     <ClCompile Include="MainMenu.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Intro.cpp" />
+    <ClCompile Include="Intro.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
     <ClCompile Include="SoundBufferFactory.cpp">
       <Filter>Core\Resources\Sound</Filter>
     </ClCompile>
