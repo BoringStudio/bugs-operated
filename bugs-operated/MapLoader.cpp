@@ -2,6 +2,8 @@
 
 #include <list>
 
+#include <SFML/Graphics/Vertex.hpp>
+
 #include "ResourceManager.h"
 #include "TextureFactory.h"
 #include "Log.h"
@@ -16,7 +18,97 @@ bool MapLoader::load(const nlohmann::json& data, Map& map)
 		return false;
 	}
 
-	// TODO: init rendering from parsed data
+	if (mapInfo.tilesets.empty()) {
+		Log::write("Error: empty map");
+		return false;
+	}
+
+	map.m_backgroundColor = mapInfo.backgroundColor;
+
+	std::vector<unsigned int> gids(mapInfo.tilesets.size());
+	for (size_t i = 0; i < gids.size(); ++i) {
+		const auto& tilesetInfo = mapInfo.tilesets[i];
+		gids[i] = tilesetInfo.firstGid;
+		map.m_layers.emplace_back(mapInfo.size, mapInfo.tileSize, tilesetInfo.textureName);
+	}
+	
+	for (const auto& layer : mapInfo.layers) {
+		if (layer.type == MapLayerInfo::TILE_LAYER) {
+			sf::Color layerColor = sf::Color(255, 255, 255, layer.opacity);
+			for (size_t i = 0; i < layer.data.size(); ++i) {
+				if (layer.data[i] == 0) {
+					continue;
+				}
+
+				bool flipHorizontally, flipVertically, flipDiagonally;
+				sf::Uint32 gid = unpackGid(layer.data[i], flipHorizontally, flipVertically, flipDiagonally);
+
+				size_t tilesetIndex = 0;
+				for (int j = gids.size() - 1; j >= 0; --j) {
+					if (gids[j] < gid) {
+						tilesetIndex = j;
+						break;
+					}
+				}
+				const auto& tilesetInfo = mapInfo.tilesets[tilesetIndex];
+
+				std::array<sf::Vertex, 4> vertices;
+				
+				// assign positions
+				unsigned int tileX = i % mapInfo.size.x;
+				unsigned int tileY = i / mapInfo.size.x;
+				unsigned int tileWidth = tilesetInfo.tileSize.x;
+				unsigned int tileHeight = tilesetInfo.tileSize.y;
+
+				vec2 position = vec2(tileX * mapInfo.tileSize.x, tileY * mapInfo.tileSize.y) + vec2(tilesetInfo.offset) + layer.offset;
+
+				vertices[0].position = position;
+				vertices[1].position = position + vec2(tileWidth, 0.0f);
+				vertices[2].position = position + vec2(tileWidth, tileHeight);
+				vertices[3].position = position + vec2(0.0f, tileHeight);
+
+				if (tileHeight != mapInfo.tileSize.y) {
+					float diff = static_cast<float>(mapInfo.tileSize.y - tileHeight);
+					for (size_t j = 0; j < 4; ++j) {
+						vertices[j].position.y += diff;
+					}
+				}
+
+				// assign textureCoords
+				int localGid = gid - tilesetInfo.firstGid;
+				int tilesetX = localGid % tilesetInfo.columnCount;
+				int tilesetY = localGid / tilesetInfo.columnCount;
+
+				vec2 textureCoords;
+				textureCoords.x = tilesetInfo.margin + tilesetX * (tileWidth + tilesetInfo.spacing);
+				textureCoords.y = tilesetInfo.margin + tilesetY * (tileHeight + tilesetInfo.spacing);
+
+				vertices[0].texCoords = textureCoords;
+				vertices[1].texCoords = textureCoords + vec2(tileWidth, 0.0f);
+				vertices[2].texCoords = textureCoords + vec2(tileWidth, tileHeight);
+				vertices[3].texCoords = textureCoords + vec2(0.0f, tileHeight);
+
+				if (flipDiagonally) {
+					std::swap(vertices[0], vertices[2]);
+				}
+				if (flipHorizontally) {
+					std::swap(vertices[0], vertices[3]);
+					std::swap(vertices[1], vertices[2]);
+				}
+				if (flipVertically) {
+					std::swap(vertices[0], vertices[1]);
+					std::swap(vertices[3], vertices[2]);
+				}
+
+				// assign colors
+				for (size_t j = 0; j < 4; ++j) {
+					vertices[j].color = layerColor;
+				}
+
+				map.m_layers[tilesetIndex].addTile(vertices, tileX, tileY);
+			}
+		}
+	}
 
 	return true;
 }
@@ -96,11 +188,12 @@ bool MapLoader::processMapNode(const nlohmann::json & mapData, MapInfo & mapInfo
 
 				MapLayerInfo layerInfo;
 				if (processLayerNode(layerData, layerInfo)) {
-					const MapLayerInfo& parentGroup = groups.back();
-					
-					layerInfo.opacity = static_cast<sf::Uint8>(layerInfo.opacity * static_cast<float>(parentGroup.opacity) / 255.0f);
-					layerInfo.isVisible &= parentGroup.isVisible;
-					layerInfo.offset += parentGroup.offset;
+					if (!groups.empty()) {
+						const MapLayerInfo& parentGroup = groups.back();
+						layerInfo.opacity = static_cast<sf::Uint8>(layerInfo.opacity * static_cast<float>(parentGroup.opacity) / 255.0f);
+						layerInfo.isVisible &= parentGroup.isVisible;
+						layerInfo.offset += parentGroup.offset;
+					}
 
 					switch (layerInfo.type)
 					{
@@ -287,8 +380,8 @@ bool MapLoader::processTilesetNode(const nlohmann::json & tilesetData, MapTilese
 
 		json imageData = tilesetData.value("image", json());
 		if (imageData.is_string()) {
-			tilesetInfo.imageFileName = imageData.get<std::string>();
-			ResourceManager::bind<TextureFactory>(tilesetInfo.name + "_" + tilesetInfo.imageFileName, tilesetInfo.imageFileName);
+			tilesetInfo.textureName = tilesetInfo.name + "_texture";
+			ResourceManager::bind<TextureFactory>(tilesetInfo.textureName, imageData.get<std::string>());
 		}
 
 		json imageWidthData = tilesetData.value("imagewidth", json());
@@ -338,8 +431,8 @@ bool MapLoader::processTilesetNode(const nlohmann::json & tilesetData, MapTilese
 		if (tileOffsetData.is_object()) {
 			json xOffsetData = tileOffsetData.value("x", json());
 			json yOffsetData = tileOffsetData.value("y", json());
-			if (xOffsetData.is_number_unsigned() && yOffsetData.is_number_unsigned()) {
-				tilesetInfo.tileOffset = uvec2(xOffsetData.get<unsigned int>(), yOffsetData.get<unsigned int>());
+			if (xOffsetData.is_number_integer() && yOffsetData.is_number_integer()) {
+				tilesetInfo.offset = ivec2(xOffsetData.get<int>(), yOffsetData.get<int>());
 			}
 		}
 	}
@@ -416,4 +509,15 @@ bool MapLoader::processAnimationNode(const nlohmann::json & animationData, MapTi
 	}
 
 	return true;
+}
+
+sf::Uint32 MapLoader::unpackGid(sf::Uint32 gid, bool& flipHorizontally, bool& flipVertically, bool& flipDiagonally)
+{
+	flipHorizontally = (gid & 0x80000000);
+	flipVertically = (gid & 0x40000000);
+	flipDiagonally = (gid & 0x20000000);
+
+	gid &= 0x1fffffff;
+
+	return gid;
 }

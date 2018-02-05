@@ -14,6 +14,9 @@ public:
 
 	void onDraw(const float dt) override;
 
+	void onResize(const vec2& windowSize) override;
+
 private:
 	Map * m_map;
+	sf::Vector2f m_translate;
 };

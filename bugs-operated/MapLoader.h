@@ -1,5 +1,7 @@
 #pragma once
 
+#include <bitset>
+
 #include "Map.h"
 
 class MapLoader
@@ -29,12 +31,12 @@ private:
 
 		std::string name;
 
-		std::string imageFileName;
+		std::string textureName;
 		uvec2 imageSize;
 
 		int margin;
 		int spacing;
-		uvec2 tileOffset;
+		ivec2 offset;
 
 		uvec2 tileSize;
 
@@ -88,4 +90,6 @@ private:
 	static bool processTilesetNode(const nlohmann::json& tilesetData, MapTilesetInfo& tilesetInfo);
 	static bool processTileNode(const nlohmann::json& tileData, MapTileInfo& tileInfo);
 	static bool processAnimationNode(const nlohmann::json& animationData, MapTileAnimationInfo& animationInfo);
+
+	static sf::Uint32 unpackGid(sf::Uint32 gid, bool& flipHorizontally, bool& flipVertically, bool& flipDiagonally);
 };

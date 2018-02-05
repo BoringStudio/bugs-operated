@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#1e1e1e" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#5a1e1e" nextobjectid="1">
  <properties>
   <property name="test_bool" type="bool" value="true"/>
   <property name="test_color" type="color" value="#ffff5500"/>
@@ -24,49 +24,26 @@
     <object id="3" x="0" y="0" width="32" height="32"/>
    </objectgroup>
   </tile>
-  <tile id="225">
-   <animation>
-    <frame tileid="192" duration="100"/>
-    <frame tileid="193" duration="100"/>
-    <frame tileid="194" duration="100"/>
-    <frame tileid="224" duration="100"/>
-    <frame tileid="225" duration="100"/>
-    <frame tileid="226" duration="100"/>
-    <frame tileid="256" duration="100"/>
-    <frame tileid="257" duration="100"/>
-    <frame tileid="258" duration="100"/>
-   </animation>
-  </tile>
  </tileset>
  <tileset firstgid="1025" name="doors" tilewidth="32" tileheight="32" tilecount="100" columns="10">
   <image source="doors.png" width="320" height="320"/>
-  <tile id="0">
-   <animation>
-    <frame tileid="0" duration="100"/>
-    <frame tileid="10" duration="100"/>
-    <frame tileid="20" duration="100"/>
-    <frame tileid="41" duration="100"/>
-    <frame tileid="40" duration="100"/>
-    <frame tileid="42" duration="100"/>
-   </animation>
-  </tile>
  </tileset>
  <layer name="ground" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt0UEKwkAURMGsvf+BXUoTQRkm9g9WwTvBOw4AAAAAAAAAAAAAAIB7eSzGPqsPvNlv9wtv1l39wpPv/eqFL581XnjyXvOFH2ftH568tD/4kdof/EjtD36k9gc/UvuDH6n9wY/U/uBHan/wI7U/+JHaH/xI7Q9+nHkxix+zeDGPH/N4MYsXM3kxkxdzeTGTDwAAAAAAAAAAAAAAAAAAAPyLJ9xOIL0=
+   eJzt20EKg1AMRdE/dh/d/xZLR21QscjXF/AcyAZyyTDLGGPZGe732ftr6NHFVg9yfnuQ5y560QEAAAAAAAAAAAB4mr1fiKNhnrMNtJlvdgttzru6hSb/u6uFLscSLTTZlmyhx1q6hyZf6Q56VOkOelTpDnpU6Q56VOkOelTpDnpU6Q56VOkOelTpDnpU6Q56VOkOeqxp0YsevWjRjx79aNGLFj1p0ZMWfWnRkw4AAAAAAAAAAAAAAAAAAAA8xRtiPSIS
   </data>
  </layer>
  <layer name="base" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1k9Kw0AUB+AX0+Kip+g/8RriRUp70tJFdeMhBJd6BickodN0nQza74MfeczqMY95JAIAAAAAAAAAAAAAAAAAAAD+lmPKOWVbXectO/8o2+JdqdJ91ynLVK+6rLPzh1R/Fe3wf/vM0qi61Cn7LP35Y5jHmIbzaPbVKdp3sOl21XP3ffI+Rjecx3u0e+klLrtqnu2v1zCPKTV33eyl4a7q60OYx5S+4/bfapif0k1CQYtZ7Er3AAAAAAAAAAAAAAAAAAAAAAAAAABM6xc2rh2v
+   eJzt101KA0EQBtCaxOA5/EnwGuJJjCcVF+rC3MKlnsEa7CZNFBwXPUp4Dz6maXpgqKILJgIAAAAAAAAAAAAAAAAAAPhPXjLr4XfZ/fVHH7HXzElmmJhVeYc+xtouMveZx/h6F56a/V05qx/91H4MWe9l5izX5yUXzf6iOasf/Yy13cR+Hi0z2yZ1/zT0Yw7tvHoo68syq67Kc+N+zKbW+Dk+59J17GfVqplfN6Efc2hrPM6lw1lV13ehH3OoNX6Ln/873kM/ehtrexvT/z/WoR89TbkX390TAAAAAAAAAAAAAAAAAAAAAAAAAOA4fADoFC1R
   </data>
  </layer>
  <layer name="computers" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1MERAAAEwDD7M7QxHJIJ+moEAAAAAAAAAAAAAAAAAAAA3FLTAU/ldAAs4E8AAAAAAAAAAAAAAAAAAAAAAAAAAACwQwN0rwGk
+   eJzt1MENADAMArHs3wzdMQiSPcF9YAYAAAAAAAAAAAAAAAAAALhm0wFQzoYyXjoACvgnAAAAAAAAAAAAAAAAAAAAAAAAAAAA6PABFmoCMA==
   </data>
  </layer>
- <group name="doors_group">
+ <group name="doors_group" offsetx="-3.66667" offsety="1">
   <layer name="doors_top_parts" width="100" height="100">
    <data encoding="base64" compression="zlib">
    eJzt1CEKADAMBMEU4vr///YDEYFAiZiRK09cBAAAAAAAAAAAAAAAAAAAAMDMyV7jj1tsXzXAV23jqwAAAAAAAAAAAAAAAAAAAAAAAAAAgC0eaIMAPQ==
