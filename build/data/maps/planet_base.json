@@ -4,7 +4,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJzt00EKwlAMRdGO3f+CHcpvC0oTzZOeA9nAu2TbAAAAAAAAAAAAAAAA\/svj4tHnagNt+nW30Oa6b7fQ5HO\/aqHLexMtNDk32UKPo+kemrxMd9BjNd1Bj1XndnrUde6nR50eWfTIUtlwv6MeddUe+z31qOnq0flndzbdQY\/VdAc9jrTIokcWLfLokUeLLFpk0iKTFrm0yKQDAAAAAAAAAAAAAAAAAAAAd\/EEIo8fuQ==",
+         "data":"eJzt0UEKwkAURMGsvf+BXUoTQRkm9g9WwTvBOw4AAAAAAAAAAAAAAIB7eSzGPqsPvNlv9wtv1l39wpPv\/eqFL581XnjyXvOFH2ftH568tD\/4kdof\/EjtD36k9gc\/UvuDH6n9wY\/U\/uBHan\/wI7U\/+JHaH\/xI7Q9+nHkxix+zeDGPH\/N4MYsXM3kxkxdzeTGTDwAAAAAAAAAAAAAAAAAAAPyLJ9xOIL0=",
          "encoding":"base64",
          "height":100,
          "name":"ground",
@@ -101,7 +101,7 @@
         {
          "columns":32,
          "firstgid":1,
-         "image":"spritesheet.png",
+         "image":"..\/texture\/spritesheet.png",
          "imageheight":1024,
          "imagewidth":1024,
          "margin":0,
@@ -232,7 +232,7 @@
         {
          "columns":10,
          "firstgid":1025,
-         "image":"doors.png",
+         "image":"..\/..\/..\/stuff\/maps\/doors.png",
          "imageheight":320,
          "imagewidth":320,
          "margin":0,

@@ -62,7 +62,7 @@ namespace math
 	sf::Color colorFromHex(const std::string& hex);
 
 	// Decodes string in base64
-	std::string decodeBase64(const std::string& encodedString);
+	std::vector<char> decodeBase64(const std::string& encodedString);
 
 	// Decompresses zlib compressed buffer
 	std::vector<char> decompress(const std::vector<char>& buffer);

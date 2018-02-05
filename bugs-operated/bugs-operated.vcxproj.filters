@@ -59,7 +59,12 @@
     <ClCompile Include="MapLoader.cpp">
       <Filter>Core\Resources\Map</Filter>
     </ClCompile>
-    <ClCompile Include="MapFactory.cpp" />
+    <ClCompile Include="MapFactory.cpp">
+      <Filter>Core\Resources\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Core\Resources\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">

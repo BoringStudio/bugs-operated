@@ -103,7 +103,12 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);SFML_STATIC;SFGUI_STATIC;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);SFML_STATIC;SFGUI_STATIC;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <OpenMPSupport>
+      </OpenMPSupport>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -119,7 +124,12 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);SFML_STATIC;SFGUI_STATIC;_CRT_SECURE_NO_WARNINGS;WITHOUT_CONSOLE;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);SFML_STATIC;SFGUI_STATIC;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;WITHOUT_CONSOLE;</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <OpenMPSupport>
+      </OpenMPSupport>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -137,7 +147,12 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);SFML_STATIC;SFGUI_STATIC;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);SFML_STATIC;SFGUI_STATIC;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <OpenMPSupport>
+      </OpenMPSupport>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -153,7 +168,12 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);SFML_STATIC;SFGUI_STATIC;_CRT_SECURE_NO_WARNINGS;WITHOUT_CONSOLE;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);SFML_STATIC;SFGUI_STATIC;_CRT_SECURE_NO_WARNINGS;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;WITHOUT_CONSOLE;</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalOptions>
+      </AdditionalOptions>
+      <OpenMPSupport>
+      </OpenMPSupport>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -176,6 +196,7 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapFactory.cpp" />
     <ClCompile Include="MapLoader.cpp" />
     <ClCompile Include="Math.cpp" />

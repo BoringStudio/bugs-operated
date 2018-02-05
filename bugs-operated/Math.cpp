@@ -198,12 +198,12 @@ bool isBase64(char c)
 	return (isalnum(c) || (c == '+') || (c == '/'));
 }
 
-std::string math::decodeBase64(const std::string & encodedString)
+std::vector<char> math::decodeBase64(const std::string & encodedString)
 {
 	size_t encodedLength = encodedString.size();
 	size_t currentSymbol = 0;
 	unsigned char buffer4bit[4], buffer3bit[3];
-	std::string ret;
+	std::vector<char> result;
 
 	int i = 0;
 	while (--encodedLength && 
@@ -223,7 +223,7 @@ std::string math::decodeBase64(const std::string & encodedString)
 			buffer3bit[2] = ((buffer4bit[2] & 0x3) << 6) + buffer4bit[3];
 
 			for (i = 0; i < 3; ++i) {
-				ret += buffer3bit[i];
+				result.push_back(buffer3bit[i]);
 			}
 
 			i = 0;
@@ -244,11 +244,11 @@ std::string math::decodeBase64(const std::string & encodedString)
 		buffer3bit[2] = ((buffer4bit[2] & 0x3) << 6) + buffer4bit[3];
 
 		for (int j = 0; j < i - 1; ++j) {
-			ret += buffer3bit[j];
+			result.push_back(buffer3bit[j]);
 		}
 	}
 
-	return ret;
+	return result;
 }
 
 std::vector<char> math::decompress(const std::vector<char>& buffer)
