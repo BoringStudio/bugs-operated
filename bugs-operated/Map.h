@@ -14,6 +14,8 @@ class LayerSet;
 class Map : public sf::Drawable
 {
 public:
+	void cull(const rect& bounds);
+
 	sf::Color getBackgroundColor() const;
 
 protected:
@@ -32,6 +34,8 @@ private:
 class Layer : public sf::Drawable
 {
 public:
+	void cull(const rect& bounds);
+
 	void setVisible(bool visible);
 	bool isVisible() const;
 
@@ -57,10 +61,14 @@ public:
 
 	void addTile(const std::array<sf::Vertex, 4>& vertices, unsigned int x, unsigned int y);
 
+	void cull(const rect& bounds);
+
 protected:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 private:
+	void updateAABB(const vec2& topLeft, const vec2& bottomRight);
+
 	bool m_isVisible;
 	
 	uvec2 m_mapSize;
@@ -72,5 +80,9 @@ private:
 	std::string m_textureName;
 	sf::Texture* m_texture;
 
+	ivec2 m_visiblePatchStart;
+	ivec2 m_visiblePatchEnd;
 	std::vector<std::vector<sf::Vertex>> m_patches;
+
+	rect m_boundingBox;
 };

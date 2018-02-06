@@ -43,6 +43,13 @@
    eJzt1MENADAMArHs3wzdMQiSPcF9YAYAAAAAAAAAAAAAAAAAALhm0wFQzoYyXjoACvgnAAAAAAAAAAAAAAAAAAAAAAAAAAAA6PABFmoCMA==
   </data>
  </layer>
+ <group name="lamps_group">
+  <layer name="lamps" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJztzgENAAAIA6DntX8AY9xNSEACAAAAAAAAAAAAAAAAAABcN+0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8sm8oAGs=
+  </data>
+  </layer>
+ </group>
  <group name="doors_group">
   <layer name="doors_top_parts" width="100" height="100">
    <data encoding="base64" compression="zlib">
@@ -52,6 +59,11 @@
   <layer name="doors_bottom_parts" width="100" height="100">
    <data encoding="base64" compression="zlib">
    eJzt1KERACAMBMEIWkCn/y6pIALBDJPsypMvPgIAAAAAAAAAAAAAAAAAAACATva667yVxe5Vh8n81F/8FAAAAAAAAAAAAAAAAAAAAAAAAAAAkx0V2gC1
+  </data>
+  </layer>
+  <layer name="doors_horizontal" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJzt06ENACAUQ8GKvwyw/34gsSgguUvqa14CAAAAAAAAAAAAAAAAAAAAcK5V0tdG3X4C79n70AoAAAAAAAAAAAAAAAAAAAAAAAAAAAD8ZwJFewGf
   </data>
   </layer>
  </group>

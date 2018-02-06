@@ -26,11 +26,6 @@ void Game::onUpdate(const float dt)
 		SceneManager::deleteScene();
 		return;
 	}
-}
-
-void Game::onDraw(const float dt)
-{
-	Core::getWindow().clear(m_map->getBackgroundColor());
 
 	if (Input::getKey(Key::A)) {
 		m_translate += vec2(300.0f, 0.0f) * dt;
@@ -46,6 +41,16 @@ void Game::onDraw(const float dt)
 		m_translate -= vec2(0.0f, 300.0f) * dt;
 	}
 
+	vec2 halfSize = vec2(Core::getWindow().getSize()) * 0.5f;
+	rect windowBounds(halfSize * 0.5f - m_translate, halfSize);
+	m_map->cull(windowBounds);
+}
+
+void Game::onDraw(const float dt)
+{
+	Core::getWindow().clear(m_map->getBackgroundColor());
+
+
 	sf::RenderStates states;
 	states.transform.translate(m_translate);
 	Core::getWindow().draw(*m_map, states);
@@ -53,5 +58,6 @@ void Game::onDraw(const float dt)
 
 void Game::onResize(const vec2& windowSize)
 {
-	Core::getWindow().setView(sf::View(windowSize * 0.5f, windowSize * 0.25f));
+	vec2 halfSize = windowSize * 0.5f;
+	Core::getWindow().setView(sf::View(halfSize, halfSize));
 }

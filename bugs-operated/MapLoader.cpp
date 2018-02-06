@@ -105,15 +105,15 @@ bool MapLoader::load(const std::string& filename, Map& map)
 				vertices[3].texCoords = textureCoords + vec2(0.0f, tileHeight);
 
 				if (flipDiagonally) {
-					std::swap(vertices[0], vertices[2]);
+					std::swap(vertices[1].texCoords, vertices[3].texCoords);
 				}
 				if (flipHorizontally) {
-					std::swap(vertices[0], vertices[3]);
-					std::swap(vertices[1], vertices[2]);
+					std::swap(vertices[0].texCoords, vertices[1].texCoords);
+					std::swap(vertices[3].texCoords, vertices[2].texCoords);
 				}
 				if (flipVertically) {
-					std::swap(vertices[0], vertices[1]);
-					std::swap(vertices[3], vertices[2]);
+					std::swap(vertices[0].texCoords, vertices[3].texCoords);
+					std::swap(vertices[1].texCoords, vertices[2].texCoords);
 				}
 
 				// assign colors
