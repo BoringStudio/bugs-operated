@@ -13,7 +13,7 @@ sf::Vector2i Input::m_lastCursorPosition = sf::Mouse::getPosition();
 
 bool Input::getKey(Key keyCode)
 {
-	if (keyCode < Key::KeyCount && keyCode > Key::Unknown) {
+	if (keyCode > Key::Unknown && keyCode < Key::KeyCount) {
 		return m_currentKeyStates.test(static_cast<size_t>(keyCode));
 	}
 	else {
@@ -23,7 +23,7 @@ bool Input::getKey(Key keyCode)
 
 bool Input::getKeyDown(Key keyCode)
 {
-	if (keyCode < Key::KeyCount && keyCode > Key::Unknown) {
+	if (keyCode > Key::Unknown && keyCode < Key::KeyCount) {
 		return !m_lastKeyStates.test(static_cast<size_t>(keyCode)) && 
 				m_currentKeyStates.test(static_cast<size_t>(keyCode));
 	}
@@ -34,7 +34,7 @@ bool Input::getKeyDown(Key keyCode)
 
 bool Input::getKeyUp(Key keyCode)
 {
-	if (keyCode < Key::KeyCount && keyCode > Key::Unknown) {
+	if (keyCode > Key::Unknown && keyCode < Key::KeyCount) {
 		return m_lastKeyStates.test(static_cast<size_t>(keyCode)) && 
 				!m_currentKeyStates.test(static_cast<size_t>(keyCode));
 	}
@@ -145,19 +145,27 @@ void Input::handleEvent(const sf::Event & e)
 		break;
 
 	case sf::Event::KeyPressed:
-		m_currentKeyStates.set(e.key.code, true);
+		if (e.key.code > Key::Unknown && e.key.code < Key::KeyCount) {
+			m_currentKeyStates.set(e.key.code, true);
+		}
 		break;
 
 	case sf::Event::KeyReleased:
-		m_currentKeyStates.set(e.key.code, false);
+		if (e.key.code > Key::Unknown && e.key.code < Key::KeyCount) {
+			m_currentKeyStates.set(e.key.code, false);
+		}
 		break;
 
 	case sf::Event::MouseButtonPressed:
-		m_currentMouseStates.set(e.mouseButton.button, true);
+		if (e.mouseButton.button < MouseButton::ButtonCount) {
+			m_currentMouseStates.set(e.mouseButton.button, true);
+		}
 		break;
 
 	case sf::Event::MouseButtonReleased:
-		m_currentMouseStates.set(e.mouseButton.button, false);
+		if (e.mouseButton.button < MouseButton::ButtonCount) {
+			m_currentMouseStates.set(e.mouseButton.button, false);
+		}
 		break;
 	default:
 		break;

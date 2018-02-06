@@ -7,7 +7,7 @@
 class MapLoader
 {
 public:
-	static bool load(const nlohmann::json& data, Map& map);
+	bool load(const std::string& filename, Map& map);
 
 private:
 	typedef std::vector<std::pair<unsigned int, unsigned int>> MapTileAnimationInfo;
@@ -85,11 +85,13 @@ private:
 	};
 
 
-	static bool processMapNode(const nlohmann::json& mapData, MapInfo& mapInfo);
-	static bool processLayerNode(const nlohmann::json& layerData, MapLayerInfo& layerInfo);
-	static bool processTilesetNode(const nlohmann::json& tilesetData, MapTilesetInfo& tilesetInfo);
-	static bool processTileNode(const nlohmann::json& tileData, MapTileInfo& tileInfo);
-	static bool processAnimationNode(const nlohmann::json& animationData, MapTileAnimationInfo& animationInfo);
+	bool processMapNode(const nlohmann::json& mapData, MapInfo& mapInfo);
+	bool processLayerNode(const nlohmann::json& layerData, MapLayerInfo& layerInfo);
+	bool processTilesetNode(const nlohmann::json& tilesetData, MapTilesetInfo& tilesetInfo);
+	bool processTileNode(const nlohmann::json& tileData, MapTileInfo& tileInfo);
+	bool processAnimationNode(const nlohmann::json& animationData, MapTileAnimationInfo& animationInfo);
 
-	static sf::Uint32 unpackGid(sf::Uint32 gid, bool& flipHorizontally, bool& flipVertically, bool& flipDiagonally);
+	sf::Uint32 unpackGid(sf::Uint32 gid, bool& flipHorizontally, bool& flipVertically, bool& flipDiagonally);
+
+	std::string m_folder;
 };

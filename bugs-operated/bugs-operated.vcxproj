@@ -109,6 +109,7 @@
       </AdditionalOptions>
       <OpenMPSupport>
       </OpenMPSupport>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -130,6 +131,7 @@
       </AdditionalOptions>
       <OpenMPSupport>
       </OpenMPSupport>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -153,6 +155,7 @@
       </AdditionalOptions>
       <OpenMPSupport>
       </OpenMPSupport>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -174,6 +177,7 @@
       </AdditionalOptions>
       <OpenMPSupport>
       </OpenMPSupport>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

@@ -8,7 +8,7 @@
   <property name="test_string" value="Hello"/>
  </properties>
  <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
-  <image source="spritesheet.png" width="1024" height="1024"/>
+  <image source="textures/spritesheet.png" width="1024" height="1024"/>
   <tile id="138">
    <objectgroup draworder="index">
     <object id="1" x="4" y="18" width="22" height="9"/>
@@ -26,11 +26,11 @@
   </tile>
  </tileset>
  <tileset firstgid="1025" name="doors" tilewidth="32" tileheight="32" tilecount="100" columns="10">
-  <image source="doors.png" width="320" height="320"/>
+  <image source="textures/doors.png" width="320" height="320"/>
  </tileset>
  <layer name="ground" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt20EKg1AMRdE/dh/d/xZLR21QscjXF/AcyAZyyTDLGGPZGe732ftr6NHFVg9yfnuQ5y560QEAAAAAAAAAAAB4mr1fiKNhnrMNtJlvdgttzru6hSb/u6uFLscSLTTZlmyhx1q6hyZf6Q56VOkOelTpDnpU6Q56VOkOelTpDnpU6Q56VOkOelTpDnpU6Q56VOkOeqxp0YsevWjRjx79aNGLFj1p0ZMWfWnRkw4AAAAAAAAAAAAAAAAAAAA8xRtiPSIS
+   eJzt0UEKwkAURMGsvf+BXUoTQRkm9g9WwTvBOw4AAAAAAAAAAAAAAIB7eSzGPqsPvNlv9wtv1l39wpPv/eqFL581XnjyXvOFH2ftH568tD/4kdof/EjtD36k9gc/UvuDH6n9wY/U/uBHan/wI7U/+JHaH/xI7Q9+nHkxix+zeDGPH/N4MYsXM3kxkxdzeTGTDwAAAAAAAAAAAAAAAAAAAPyLJ9xOIL0=
   </data>
  </layer>
  <layer name="base" width="100" height="100">
@@ -43,15 +43,15 @@
    eJzt1MENADAMArHs3wzdMQiSPcF9YAYAAAAAAAAAAAAAAAAAALhm0wFQzoYyXjoACvgnAAAAAAAAAAAAAAAAAAAAAAAAAAAA6PABFmoCMA==
   </data>
  </layer>
- <group name="doors_group" offsetx="-3.66667" offsety="1">
+ <group name="doors_group">
   <layer name="doors_top_parts" width="100" height="100">
    <data encoding="base64" compression="zlib">
-   eJzt1DEKACAMA8AKbv3/f10FuxWkw90UsgYSAQAAAAAAAAAAAAAAAAAAANCz9pvvjr+y2CDtASVfNYuvAgAAAAAAAAAAAAAAAAAAAAAAAAAApjjzdABH
+   eJzt1DEKACAMBMEIdvn/f31BChEhkJlyyysuAgAAAAAAAAAAAAAAAAAAAODN2nedv7LYveowmZ/qxU8BAAAAAAAAAAAAAAAAAAAAAAAAAABdHGgzAD0=
   </data>
   </layer>
   <layer name="doors_bottom_parts" width="100" height="100">
    <data encoding="base64" compression="zlib">
-   eJzt1KERACAMBMEIWoim/y5pICIqw8CuPPniIwAAAAAAAAAAAAAAAAAAAAB4Sa5eY8Yutq8a4Ktu46sAAAAAAAAAAAAAAAAAAAAAAAAAAPjZARbKALU=
+   eJzt1KERACAMBMEIWkCn/y6pIALBDJPsypMvPgIAAAAAAAAAAAAAAAAAAACATva667yVxe5Vh8n81F/8FAAAAAAAAAAAAAAAAAAAAAAAAAAAkx0V2gC1
   </data>
   </layer>
  </group>

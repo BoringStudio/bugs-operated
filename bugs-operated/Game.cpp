@@ -11,7 +11,7 @@ void Game::onInit()
 	ResourceManager::bind<MapFactory>("planet_base", "maps/planet_base.json");
 
 	m_map = ResourceManager::get<Map>("planet_base");
-	m_translate = vec2(-1280.0f, -1280.0f);
+	m_translate = vec2(-1000.0f, -1000.0f);
 
 	onResize(vec2(Core::getWindow().getSize()));
 }
@@ -53,5 +53,5 @@ void Game::onDraw(const float dt)
 
 void Game::onResize(const vec2& windowSize)
 {
-	Core::getWindow().setView(sf::View(windowSize * 0.5f, windowSize * 0.5f));
+	Core::getWindow().setView(sf::View(windowSize * 0.5f, windowSize * 0.25f));
 }

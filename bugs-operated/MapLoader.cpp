@@ -6,12 +6,23 @@
 
 #include "ResourceManager.h"
 #include "TextureFactory.h"
+#include "FileManager.h"
 #include "Log.h"
 
 using json = nlohmann::json;
 
-bool MapLoader::load(const nlohmann::json& data, Map& map)
+bool MapLoader::load(const std::string& filename, Map& map)
 {
+	if (filename.find_last_of('/') != std::string::npos) {
+		m_folder = filename.substr(0, filename.find_last_of('/') + 1);
+	}
+
+	json data;
+	{
+		std::vector<char> fileData = FileManager::open(filename);
+		data = json::parse(fileData.begin(), fileData.end());
+	}
+
 	MapInfo mapInfo;
 	if (!processMapNode(data, mapInfo)) {
 		Log::write("Error: unable to load map");
@@ -29,23 +40,28 @@ bool MapLoader::load(const nlohmann::json& data, Map& map)
 	for (size_t i = 0; i < gids.size(); ++i) {
 		const auto& tilesetInfo = mapInfo.tilesets[i];
 		gids[i] = tilesetInfo.firstGid;
-		map.m_layers.emplace_back(mapInfo.size, mapInfo.tileSize, tilesetInfo.textureName);
 	}
 	
-	for (const auto& layer : mapInfo.layers) {
-		if (layer.type == MapLayerInfo::TILE_LAYER) {
-			sf::Color layerColor = sf::Color(255, 255, 255, layer.opacity);
-			for (size_t i = 0; i < layer.data.size(); ++i) {
-				if (layer.data[i] == 0) {
+	for (const auto& layerInfo : mapInfo.layers) {
+		if (layerInfo.type == MapLayerInfo::TILE_LAYER) {
+			map.m_layers.emplace_back();
+			Layer& layer = map.m_layers.back();
+
+			layer.setVisible(layerInfo.isVisible);
+
+			sf::Color layerColor = sf::Color(255, 255, 255, layerInfo.opacity);
+
+			for (size_t i = 0; i < layerInfo.data.size(); ++i) {
+				if (layerInfo.data[i] == 0) {
 					continue;
 				}
-
+				
 				bool flipHorizontally, flipVertically, flipDiagonally;
-				sf::Uint32 gid = unpackGid(layer.data[i], flipHorizontally, flipVertically, flipDiagonally);
+				sf::Uint32 gid = unpackGid(layerInfo.data[i], flipHorizontally, flipVertically, flipDiagonally);
 
 				size_t tilesetIndex = 0;
 				for (int j = gids.size() - 1; j >= 0; --j) {
-					if (gids[j] < gid) {
+					if (gids[j] <= gid) {
 						tilesetIndex = j;
 						break;
 					}
@@ -60,7 +76,7 @@ bool MapLoader::load(const nlohmann::json& data, Map& map)
 				unsigned int tileWidth = tilesetInfo.tileSize.x;
 				unsigned int tileHeight = tilesetInfo.tileSize.y;
 
-				vec2 position = vec2(tileX * mapInfo.tileSize.x, tileY * mapInfo.tileSize.y) + vec2(tilesetInfo.offset) + layer.offset;
+				vec2 position = vec2(tileX * mapInfo.tileSize.x, tileY * mapInfo.tileSize.y) + vec2(tilesetInfo.offset) + layerInfo.offset;
 
 				vertices[0].position = position;
 				vertices[1].position = position + vec2(tileWidth, 0.0f);
@@ -105,7 +121,15 @@ bool MapLoader::load(const nlohmann::json& data, Map& map)
 					vertices[j].color = layerColor;
 				}
 
-				map.m_layers[tilesetIndex].addTile(vertices, tileX, tileY);
+				auto layerSetIt = layer.m_layerSets.find(tilesetIndex);
+				if (layerSetIt == layer.m_layerSets.end()) {
+					auto insertion = layer.m_layerSets.emplace(std::piecewise_construct, 
+						std::make_tuple(static_cast<sf::Uint32>(tilesetIndex)), 
+						std::make_tuple(mapInfo.size, mapInfo.tileSize, tilesetInfo.textureName));
+
+					layerSetIt = insertion.first;
+				}
+				layerSetIt->second.addTile(vertices, tileX, tileY);
 			}
 		}
 	}
@@ -381,7 +405,7 @@ bool MapLoader::processTilesetNode(const nlohmann::json & tilesetData, MapTilese
 		json imageData = tilesetData.value("image", json());
 		if (imageData.is_string()) {
 			tilesetInfo.textureName = tilesetInfo.name + "_texture";
-			ResourceManager::bind<TextureFactory>(tilesetInfo.textureName, imageData.get<std::string>());
+			ResourceManager::bind<TextureFactory>(tilesetInfo.textureName, m_folder + imageData.get<std::string>());
 		}
 
 		json imageWidthData = tilesetData.value("imagewidth", json());

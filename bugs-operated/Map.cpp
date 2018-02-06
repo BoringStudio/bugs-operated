@@ -16,9 +16,7 @@ sf::Color Map::getBackgroundColor() const
 void Map::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	for (const auto& layer : m_layers) {
-		if (layer.isVisible()) {
-			target.draw(layer, states);
-		}
+		target.draw(layer, states);
 	}
 }
 
@@ -43,21 +41,37 @@ void LayerSet::addTile(const std::array<sf::Vertex, 4>& vertices, unsigned int x
 	}
 }
 
-void LayerSet::setVisible(bool visible)
+void Layer::setVisible(bool visible)
 {
 	m_isVisible = visible;
 }
 
-bool LayerSet::isVisible() const
+bool Layer::isVisible() const
 {
 	return m_isVisible;
 }
 
+void Layer::draw(sf::RenderTarget & target, sf::RenderStates states) const
+{
+	if (!m_isVisible) {
+		return;
+	}
+
+	for (const auto& layerSet : m_layerSets) {
+		target.draw(layerSet.second, states);
+	}
+}
+
 void LayerSet::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
+	if (!m_isVisible) {
+		return;
+	}
+
 	// TODO: make culling using screen quad and etc.
+	
+	states.texture = m_texture;
 	for (size_t i = 0; i < m_patches.size(); ++i) {
-		states.texture = m_texture;
 		target.draw(m_patches[i].data(), m_patches[i].size(), sf::Quads, states);
 	}
 }

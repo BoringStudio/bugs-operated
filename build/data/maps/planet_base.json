@@ -4,7 +4,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJzt20EKg1AMRdE\/dh\/d\/xZLR21QscjXF\/AcyAZyyTDLGGPZGe732ftr6NHFVg9yfnuQ5y560QEAAAAAAAAAAAB4mr1fiKNhnrMNtJlvdgttzru6hSb\/u6uFLscSLTTZlmyhx1q6hyZf6Q56VOkOelTpDnpU6Q56VOkOelTpDnpU6Q56VOkOelTpDnpU6Q56VOkOeqxp0YsevWjRjx79aNGLFj1p0ZMWfWnRkw4AAAAAAAAAAAAAAAAAAAA8xRtiPSIS",
+         "data":"eJzt0UEKwkAURMGsvf+BXUoTQRkm9g9WwTvBOw4AAAAAAAAAAAAAAIB7eSzGPqsPvNlv9wtv1l39wpPv\/eqFL581XnjyXvOFH2ftH568tD\/4kdof\/EjtD36k9gc\/UvuDH6n9wY\/U\/uBHan\/wI7U\/+JHaH\/xI7Q9+nHkxix+zeDGPH\/N4MYsXM3kxkxdzeTGTDwAAAAAAAAAAAAAAAAAAAPyLJ9xOIL0=",
          "encoding":"base64",
          "height":100,
          "name":"ground",
@@ -45,7 +45,7 @@
          "layers":[
                 {
                  "compression":"zlib",
-                 "data":"eJzt1CEKADAMBMEU4vr\/\/\/YDEYFAiZiRK09cBAAAAAAAAAAAAAAAAAAAAMDMyV7jj1tsXzXAV23jqwAAAAAAAAAAAAAAAAAAAAAAAAAAgC0eaIMAPQ==",
+                 "data":"eJzt1DEKACAMBMEIdvn\/f31BChEhkJlyyysuAgAAAAAAAAAAAAAAAAAAAODN2nedv7LYveowmZ\/qxU8BAAAAAAAAAAAAAAAAAAAAAAAAAABdHGgzAD0=",
                  "encoding":"base64",
                  "height":100,
                  "name":"doors_top_parts",
@@ -58,7 +58,7 @@
                 }, 
                 {
                  "compression":"zlib",
-                 "data":"eJzt1KERACAMBMEIWoim\/y5pICIqw8CuPPniIwAAAAAAAAAAAAAAAAAAAAB4Sa5eY8Yutq8a4Ktu46sAAAAAAAAAAAAAAAAAAAAAAAAAAPjZARbKALU=",
+                 "data":"eJzt1KERACAMBMEIWkCn\/y6pIALBDJPsypMvPgIAAAAAAAAAAAAAAAAAAACATva667yVxe5Vh8n81F\/8FAAAAAAAAAAAAAAAAAAAAAAAAAAAkx0V2gC1",
                  "encoding":"base64",
                  "height":100,
                  "name":"doors_bottom_parts",
@@ -70,8 +70,6 @@
                  "y":0
                 }],
          "name":"doors_group",
-         "offsetx":-3.66666666666652,
-         "offsety":1,
          "opacity":1,
          "type":"group",
          "visible":true,
@@ -103,7 +101,7 @@
         {
          "columns":32,
          "firstgid":1,
-         "image":"textures\/spritesheet.png",
+         "image":"..\/textures\/spritesheet.png",
          "imageheight":1024,
          "imagewidth":1024,
          "margin":0,
@@ -111,12 +109,90 @@
          "spacing":0,
          "tilecount":1024,
          "tileheight":32,
+         "tiles":
+            {
+             "138":
+                {
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":9,
+                             "id":1,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":22,
+                             "x":4,
+                             "y":18
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                },
+             "192":
+                {
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":32,
+                             "id":2,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":32,
+                             "x":0,
+                             "y":0
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                },
+             "193":
+                {
+                 "objectgroup":
+                    {
+                     "draworder":"index",
+                     "name":"",
+                     "objects":[
+                            {
+                             "height":32,
+                             "id":3,
+                             "name":"",
+                             "rotation":0,
+                             "type":"",
+                             "visible":true,
+                             "width":32,
+                             "x":0,
+                             "y":0
+                            }],
+                     "opacity":1,
+                     "type":"objectgroup",
+                     "visible":true,
+                     "x":0,
+                     "y":0
+                    }
+                }
+            },
          "tilewidth":32
         }, 
         {
          "columns":10,
          "firstgid":1025,
-         "image":"textures\/doors.png",
+         "image":"..\/textures\/doors.png",
          "imageheight":320,
          "imagewidth":320,
          "margin":0,

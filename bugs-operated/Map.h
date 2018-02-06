@@ -8,6 +8,7 @@
 
 #include "Math.h"
 
+class Layer;
 class LayerSet;
 
 class Map : public sf::Drawable
@@ -24,19 +25,37 @@ private:
 
 	sf::Color m_backgroundColor;
 
-	std::vector<LayerSet> m_layers;
+	std::vector<Layer> m_layers;
 };
 
 
+class Layer : public sf::Drawable
+{
+public:
+	void setVisible(bool visible);
+	bool isVisible() const;
+
+	LayerSet& getLayerSet(sf::Uint32 id);
+
+protected:
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
+private:
+	friend class MapLoader;
+
+	bool m_isVisible;
+
+	std::unordered_map<sf::Uint32, LayerSet> m_layerSets;
+};
+
+
+// Stuff
 class LayerSet : public sf::Drawable
 {
 public:
 	LayerSet(const uvec2& mapSize, const uvec2& tileSize, const std::string& textureName, unsigned int patchSize = 10);
 
 	void addTile(const std::array<sf::Vertex, 4>& vertices, unsigned int x, unsigned int y);
-
-	void setVisible(bool visible);
-	bool isVisible() const;
 
 protected:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
