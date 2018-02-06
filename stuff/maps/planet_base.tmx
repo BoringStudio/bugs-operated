@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#5a1e1e" nextobjectid="1">
+ <properties>
+  <property name="test_bool" type="bool" value="true"/>
+  <property name="test_color" type="color" value="#ffff5500"/>
+  <property name="test_float" type="float" value="123.123"/>
+  <property name="test_int" type="int" value="123123123"/>
+  <property name="test_string" value="Hello"/>
+ </properties>
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
+  <image source="spritesheet.png" width="1024" height="1024"/>
+  <tile id="138">
+   <objectgroup draworder="index">
+    <object id="1" x="4" y="18" width="22" height="9"/>
+   </objectgroup>
+  </tile>
+  <tile id="192">
+   <objectgroup draworder="index">
+    <object id="2" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+  <tile id="193">
+   <objectgroup draworder="index">
+    <object id="3" x="0" y="0" width="32" height="32"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="1025" name="doors" tilewidth="32" tileheight="32" tilecount="100" columns="10">
+  <image source="doors.png" width="320" height="320"/>
+ </tileset>
+ <layer name="ground" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt20EKg1AMRdE/dh/d/xZLR21QscjXF/AcyAZyyTDLGGPZGe732ftr6NHFVg9yfnuQ5y560QEAAAAAAAAAAAB4mr1fiKNhnrMNtJlvdgttzru6hSb/u6uFLscSLTTZlmyhx1q6hyZf6Q56VOkOelTpDnpU6Q56VOkOelTpDnpU6Q56VOkOelTpDnpU6Q56VOkOeqxp0YsevWjRjx79aNGLFj1p0ZMWfWnRkw4AAAAAAAAAAAAAAAAAAAA8xRtiPSIS
+  </data>
+ </layer>
+ <layer name="base" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt101KA0EQBtCaxOA5/EnwGuJJjCcVF+rC3MKlnsEa7CZNFBwXPUp4Dz6maXpgqKILJgIAAAAAAAAAAAAAAAAAAPhPXjLr4XfZ/fVHH7HXzElmmJhVeYc+xtouMveZx/h6F56a/V05qx/91H4MWe9l5izX5yUXzf6iOasf/Yy13cR+Hi0z2yZ1/zT0Yw7tvHoo68syq67Kc+N+zKbW+Dk+59J17GfVqplfN6Efc2hrPM6lw1lV13ehH3OoNX6Ln/873kM/ehtrexvT/z/WoR89TbkX390TAAAAAAAAAAAAAAAAAAAAAAAAAOA4fADoFC1R
+  </data>
+ </layer>
+ <layer name="computers" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1MENADAMArHs3wzdMQiSPcF9YAYAAAAAAAAAAAAAAAAAALhm0wFQzoYyXjoACvgnAAAAAAAAAAAAAAAAAAAAAAAAAAAA6PABFmoCMA==
+  </data>
+ </layer>
+ <group name="doors_group" offsetx="-3.66667" offsety="1">
+  <layer name="doors_top_parts" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJzt1DEKACAMA8AKbv3/f10FuxWkw90UsgYSAQAAAAAAAAAAAAAAAAAAANCz9pvvjr+y2CDtASVfNYuvAgAAAAAAAAAAAAAAAAAAAAAAAAAApjjzdABH
+  </data>
+  </layer>
+  <layer name="doors_bottom_parts" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJzt1KERACAMBMEIWoim/y5pICIqw8CuPPniIwAAAAAAAAAAAAAAAAAAAAB4Sa5eY8Yutq8a4Ktu46sAAAAAAAAAAAAAAAAAAAAAAAAAAPjZARbKALU=
+  </data>
+  </layer>
+ </group>
+</map>

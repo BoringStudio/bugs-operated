@@ -38,7 +38,7 @@ public:
 			m_factories[key] = std::move(factory);
 		}
 		else {
-			Log::write("Same resource was already binded:", name, ",", key.second.hash_code());
+			Log::write("Same resource was already binded: \"" + name + "\", \"" + key.second.name() + "\"");
 		}
 	}
 
@@ -54,7 +54,7 @@ public:
 			m_factories.erase(it);
 		}
 		else {
-			Log::write("There wasn't any resource to unbind with name:", name, ",", key.second.hash_code());
+			Log::write("There wasn't any resource to unbind with name: \"" + name + "\", \"" + key.second.name() + "\"");
 		}
 	}
 
@@ -65,10 +65,10 @@ public:
 	static T* get(const std::string& name)
 	{
 		auto key = std::make_pair(name, std::type_index(typeid(T)));
-
+		
 		auto it = m_factories.find(key);
 		if (it == m_factories.end()) {
-			return nullptr;
+			throw std::runtime_error("Unable to get resource: \"" + name + "\", \"" + key.second.name() + "\"");
 		}
 		else {
 			return reinterpret_cast<T*>(it->second->load());

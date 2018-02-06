@@ -12,6 +12,7 @@ bool Core::m_isRunning = false;
 sf::RenderWindow Core::m_window;
 std::unique_ptr<sfg::SFGUI> Core::m_gui = nullptr;
 std::unique_ptr<sfg::Desktop> Core::m_guiDesktop = nullptr;
+unsigned long long Core::m_globalTimer = 0;
 
 void Core::init(const Parameters& parameters)
 {
@@ -24,7 +25,7 @@ void Core::init(const Parameters& parameters)
 	settings.depthBits = 24;
 	settings.stencilBits = 8;
 
-	sf::Uint32 windowStyle = sf::Style::Titlebar | sf::Style::Close;
+	sf::Uint32 windowStyle = sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize;
 	if (parameters.fullscreen) {
 		windowStyle |= sf::Style::Fullscreen;
 	}
@@ -72,11 +73,14 @@ void Core::run()
 	}
 
 	m_isRunning = true;
+	m_globalTimer = 0;
 
 	sf::Clock timer;
-
+	
 	while (m_isRunning) {
-		float dt = timer.restart().asSeconds();
+		sf::Time timeElapsed = timer.restart();
+		m_globalTimer += timeElapsed.asMilliseconds();
+		float dt = timeElapsed.asSeconds();
 
 		// Handle window and keyboard events
 		handleEvents();
@@ -125,6 +129,11 @@ sfg::SFGUI * Core::getGui()
 sfg::Desktop * Core::getGuiDesktop()
 {
 	return m_guiDesktop.get();
+}
+
+unsigned long long Core::getGlobalTimer()
+{
+	return m_globalTimer;
 }
 
 void Core::handleEvents()

@@ -14,7 +14,7 @@ public:
     virtual ~Scene() {}
 
     // Is called when this Scene object is added to Game scenes stack
-    virtual void onInit() {}
+	virtual void onInit() {}
 
     // Is called when this Scene is removed from Game scenes stack
     virtual void onClose() {}

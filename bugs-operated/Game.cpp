@@ -8,23 +8,16 @@
 
 void Game::onInit()
 {
-	m_guiWindow = sfg::Window::Create();
-	m_guiWindow->SetTitle("Axcvxcv");
+	ResourceManager::bind<MapFactory>("planet_base", "maps/planet_base.json");
 
-	// Create the label.
-	auto label = sfg::Label::Create();
+	m_map = ResourceManager::get<Map>("planet_base");
+	m_translate = vec2(-1000.0f, -1000.0f);
 
-	// Set the text of the label.
-	label->SetText("Hasdasdasde");
-
-	m_guiWindow->Add(label);
-
-	Core::getGuiDesktop()->Add(m_guiWindow);
+	onResize(vec2(Core::getWindow().getSize()));
 }
 
 void Game::onClose()
 {
-	Core::getGuiDesktop()->Remove(m_guiWindow);
 }
 
 void Game::onUpdate(const float dt)
@@ -33,11 +26,38 @@ void Game::onUpdate(const float dt)
 		SceneManager::deleteScene();
 		return;
 	}
+
+	if (Input::getKey(Key::A)) {
+		m_translate += vec2(300.0f, 0.0f) * dt;
+	}
+	else if (Input::getKey(Key::D)) {
+		m_translate -= vec2(300.0f, 0.0f) * dt;
+	}
+
+	if (Input::getKey(Key::W)) {
+		m_translate += vec2(0.0f, 300.0f) * dt;
+	}
+	else if (Input::getKey(Key::S)) {
+		m_translate -= vec2(0.0f, 300.0f) * dt;
+	}
+
+	vec2 halfSize = vec2(Core::getWindow().getSize()) * 0.5f;
+	rect windowBounds(halfSize * 0.5f - m_translate, halfSize);
+	m_map->cull(windowBounds);
 }
 
 void Game::onDraw(const float dt)
 {
-	Core::getWindow().clear(sf::Color(30, 30, 30));
+	Core::getWindow().clear(m_map->getBackgroundColor());
 
-	Core::getGui()->Display(Core::getWindow());
+
+	sf::RenderStates states;
+	states.transform.translate(m_translate);
+	Core::getWindow().draw(*m_map, states);
+}
+
+void Game::onResize(const vec2& windowSize)
+{
+	vec2 halfSize = windowSize * 0.5f;
+	Core::getWindow().setView(sf::View(halfSize, halfSize));
 }
