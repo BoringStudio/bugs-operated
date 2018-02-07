@@ -1,5 +1,8 @@
 #pragma once
 
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/RenderTexture.hpp>
+
 #include "SceneManager.h"
 #include "Map.h"
 
@@ -19,4 +22,7 @@ public:
 private:
 	Map * m_map;
 	sf::Vector2f m_translate;
+
+	sf::RectangleShape m_frameRectangle;
+	sf::RenderTexture m_frameBuffer;
 };

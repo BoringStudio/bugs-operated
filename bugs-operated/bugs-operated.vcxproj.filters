@@ -65,6 +65,9 @@
     <ClCompile Include="Map.cpp">
       <Filter>Core\Resources\Map</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderFactory.cpp">
+      <Filter>Core\Resources\Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -102,6 +105,9 @@
     </Filter>
     <Filter Include="Core\Resources\Map">
       <UniqueIdentifier>{712b2c78-86b7-40ab-a56e-93eb5f3cbdae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Resources\Shader">
+      <UniqueIdentifier>{de612c4a-439b-41ae-8363-d1cffb6b7fb6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +182,9 @@
     </ClInclude>
     <ClInclude Include="MapFactory.h">
       <Filter>Core\Resources\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderFactory.h">
+      <Filter>Core\Resources\Shader</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

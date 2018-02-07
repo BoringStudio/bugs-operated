@@ -10,10 +10,40 @@ void Game::onInit()
 {
 	ResourceManager::bind<MapFactory>("planet_base", "maps/planet_base.json");
 
+	std::string vertexShader = 
+R"(void main()
+{
+    gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+    gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
+    gl_FrontColor = gl_Color;
+}
+)";
+
+	std::string fragmentShader =
+R"(uniform sampler2D texture;
+
+void main()
+{
+	vec4 color = texture2D(texture, gl_TexCoord[0].xy);
+	if (mod(gl_FragCoord.y, 2.0) >= 1) {
+		color *= vec4(0.9);
+	}
+    else {
+        color *= vec4(1.05);
+	}
+
+    gl_FragColor = color * gl_Color;
+}
+)";
+
+	ResourceManager::bind<ShaderFactory>("shader", ShaderFactory::FromString{ vertexShader }, ShaderFactory::FromString{ fragmentShader });
+
 	m_map = ResourceManager::get<Map>("planet_base");
 	m_translate = vec2(-1000.0f, -1000.0f);
 
-	onResize(vec2(Core::getWindow().getSize()));
+	uvec2 windowSize = Core::getWindow().getSize();
+	m_frameBuffer.create(windowSize.x, windowSize.y);
+	onResize(vec2(windowSize));
 }
 
 void Game::onClose()
@@ -28,17 +58,17 @@ void Game::onUpdate(const float dt)
 	}
 
 	if (Input::getKey(Key::A)) {
-		m_translate += vec2(300.0f, 0.0f) * dt;
+		m_translate += vec2(150.0f, 0.0f) * dt;
 	}
 	else if (Input::getKey(Key::D)) {
-		m_translate -= vec2(300.0f, 0.0f) * dt;
+		m_translate -= vec2(150.0f, 0.0f) * dt;
 	}
 
 	if (Input::getKey(Key::W)) {
-		m_translate += vec2(0.0f, 300.0f) * dt;
+		m_translate += vec2(0.0f, 150.0f) * dt;
 	}
 	else if (Input::getKey(Key::S)) {
-		m_translate -= vec2(0.0f, 300.0f) * dt;
+		m_translate -= vec2(0.0f, 150.0f) * dt;
 	}
 
 	vec2 halfSize = vec2(Core::getWindow().getSize()) * 0.5f;
@@ -48,15 +78,32 @@ void Game::onUpdate(const float dt)
 
 void Game::onDraw(const float dt)
 {
-	Core::getWindow().clear(m_map->getBackgroundColor());
+	// render scene to texture
+	m_frameBuffer.clear(m_map->getBackgroundColor());
 	
 	sf::RenderStates states;
 	states.transform.translate(m_translate);
-	Core::getWindow().draw(*m_map, states);
+	m_frameBuffer.draw(*m_map, states);
+
+	m_frameBuffer.display();
+
+
+	// render texture
+	sf::Shader::bind(ResourceManager::get<sf::Shader>("shader"));
+	Core::getWindow().draw(m_frameRectangle);
+	sf::Shader::bind(nullptr);
 }
 
 void Game::onResize(const vec2& windowSize)
 {
 	vec2 halfSize = windowSize * 0.5f;
-	Core::getWindow().setView(sf::View(halfSize, halfSize));
+
+	// properly resizing
+	Core::getWindow().setView(sf::View(halfSize, windowSize));
+
+	// framebuffer initialization
+	m_frameRectangle.setSize(windowSize);
+	m_frameRectangle.setTexture(&m_frameBuffer.getTexture());
+
+	m_frameBuffer.setView(sf::View(halfSize, halfSize));
 }

@@ -207,6 +207,7 @@
     <ClCompile Include="MusicFactory.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ShaderFactory.cpp" />
     <ClCompile Include="SoundBufferFactory.cpp" />
     <ClCompile Include="TextureFactory.cpp" />
     <ClCompile Include="Time.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="MusicFactory.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ShaderFactory.h" />
     <ClInclude Include="SoundBufferFactory.h" />
     <ClInclude Include="TextureFactory.h" />
     <ClInclude Include="Time.h" />

@@ -99,10 +99,11 @@ bool MapLoader::load(const std::string& filename, Map& map)
 				textureCoords.x = tilesetInfo.margin + tilesetX * (tileWidth + tilesetInfo.spacing);
 				textureCoords.y = tilesetInfo.margin + tilesetY * (tileHeight + tilesetInfo.spacing);
 
-				vertices[0].texCoords = textureCoords;
-				vertices[1].texCoords = textureCoords + vec2(tileWidth, 0.0f);
-				vertices[2].texCoords = textureCoords + vec2(tileWidth, tileHeight);
-				vertices[3].texCoords = textureCoords + vec2(0.0f, tileHeight);
+
+				vertices[0].texCoords = math::ceil(textureCoords);
+				vertices[1].texCoords = math::ceil(textureCoords + vec2(tileWidth, 0.0f));
+				vertices[2].texCoords = math::ceil(textureCoords + vec2(tileWidth, tileHeight));
+				vertices[3].texCoords = math::ceil(textureCoords + vec2(0.0f, tileHeight));
 
 				if (flipDiagonally) {
 					std::swap(vertices[1].texCoords, vertices[3].texCoords);
