@@ -49,8 +49,7 @@ void Game::onUpdate(const float dt)
 void Game::onDraw(const float dt)
 {
 	Core::getWindow().clear(m_map->getBackgroundColor());
-
-
+	
 	sf::RenderStates states;
 	states.transform.translate(m_translate);
 	Core::getWindow().draw(*m_map, states);

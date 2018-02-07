@@ -1,14 +1,49 @@
-{ "backgroundcolor":"#5a1e1e",
+{ "backgroundcolor":"#301010",
  "height":100,
  "infinite":false,
  "layers":[
         {
+         "layers":[
+                {
+                 "compression":"zlib",
+                 "data":"eJztnI1x4yAQhV1KKohaoALTQkq5UlxKSqGUkybRDcfA\/rELSN43s+OJJRZ4HyvkRM7j4XK5XC6Xy+VyuVwul8vlWlnPx+P1+RMf2Wser8r7L+BYLcr8Z7vX3v\/3bA9mKfP+X8Q9tv3YrNj7\/343Ps9FvH93PkIO4TfKn6Ew53N1Lk95PUj8NWdzcLkikytdmzpq5UPVNCN11MSl4rdWPtSMM5AyizDbcyz2Ovmj5Z22jOoiNMLCX3buVWtkwjVKyikRc1+2RhRZULwa1QeZSVzsnmtfHzP8sopQvF6qRha\/l5KwDVwWR8QFamQQi1QJahtpn2weR8yuEeXrVL428+B6VGPRw4YccWKNGNRG6b9kzUK+1zipx4waMWKBsaHwqOUow5TJaB6DPvNh5\/X0ZcojDrxmKbCoedHrr3QcrbFg6wHNP6pGOvfv0wNszlyPtAPqjzSOOKhGFHiM9NWSF3reiBoR8sjXm\/NQknDvCBttn+ZEAvzR6q\/sgx3WPAS1gfki8SshPDQDYoL2acmjszasPMJYU\/qGzsF4gPmj0Z6u9DxC6eP5HjRnyCOIA3kNE3zFmID5LWrkU\/65uDUvbr4yD9Qe8rd1DGpDHXf1WDSoEca+gXFIlbH3sKl51+IFeU4dh2is2jVC5EFZX6dX1DXH5cBZN5J+rsKjtfZKn1L22moj5VF7r5Xfgkfz2GAe0BhLn1LxGoh5KDnLtaHNA8oHhgEP6bw4PDi+UFiwfWPOZUUe0jlBPDiMU6PdUjyi8j1WB4+yXdr+X7+SvCXTMlcSesdZB+zQrBEGj5r\/teO5h1wmNb9TERLvr8SDOnYqj\/xnCQ+xL0Cf3HHM5BEI4669T+XB8aKXB8TJ4twRPKjri8KDO0fn0TdGyD8Oj6DAAurDedDqrtUGatvq8xY89nvn4x5aOr7E8KeWp+Y\/JVdC8pZtsXM4+Ux5PB7Ne16qVy0eZVuMK8eLRPSZOn5oDmDEncVzzO+wqDx6vODmOkPsH3M9oWH0N6kRfmrwSFvneq6wuBKP3AeOb6259\/LV4qAWE3hwPYA8X87PC\/LAPJYwuQWXaLCXHyJcryQ8sDbWXLhjZofVM1jIfh42u2dzEyF32mjsyuOmPKJRbRwi3F+lrf\/ehuoPlL8cR2tMgdGfaJzGzye2PqO3xob5geWi+ioNKQtS22hYG6eYz2H1zLVn7Y4IdGyLfddAw88AxGymS\/Ag\/F4R8nPmWtYcA5onDrhWnTL4vvntYuT3awX7OmXdaq3dJWL0952B3\/Xeyter8FCskdtF\/Nk7vjrsFanB5O15zPx\/MhUm4WZM2HOZ\/f99mPfA5n4o9svuO066VpVq1Mk0X2bF7NrIVTDR9jEAUTt3OIu4SG3kWmQ\/gViZjG1FFqcWuu8KlXiLuihlvMfP4No8vtKeAUnIxHQtM+sJZXGF2sjVWScsb0bH1VicUrp21dZufsxZMHQw2a+zXwpcJLywdm\/FItcALjU+0HEWh2Psd2GR6+QyiI04TgZ35VDTwJrxWmAor5mZtRNvtD9oq8bIipPXhFwtTj0x6nkQl8vlcrlcLpfL5XK5XC6Xy+XS0F9czy4m",
+                 "encoding":"base64",
+                 "height":100,
+                 "name":"ground",
+                 "opacity":1,
+                 "type":"tilelayer",
+                 "visible":true,
+                 "width":100,
+                 "x":0,
+                 "y":0
+                }, 
+                {
+                 "compression":"zlib",
+                 "data":"eJzt2d0NgjAUBlBf3cJXtnAUR3EURnEUR7GNkCgGFWm5KuckxKDkpvn6B7LZAAAAAAAAAAAAAAAAAGuxTUcT3Yg\/lzLeT7k+9cdpW6kta5ezHfk+H4f+\/DZ\/c6SOYa7Pxnz6bZeuPb5T09yZL8+FUmM+1Tnrk2lq5zW2DhLHHsMvW2r82kte6+6D8h7elq5do+Ya5HuqmmPXvJhmgXssvlB+Holuwy9oBp+lWKfmkV+82z4oOT\/sGZ+plZv+mC9nWGLNKlWHq7E88\/Pd8P9BuS+jew\/VNvfnh0\/qEK\/vz+h2cGUdiyP7WN379ja6HTyyXwMAAAAAAAAAAAAAAAAAAACswwVNABKl",
+                 "encoding":"base64",
+                 "height":100,
+                 "name":"rocks",
+                 "opacity":1,
+                 "type":"tilelayer",
+                 "visible":true,
+                 "width":100,
+                 "x":0,
+                 "y":0
+                }],
+         "name":"planet",
+         "opacity":1,
+         "type":"group",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "compression":"zlib",
-         "data":"eJzt0UEKwkAURMGsvf+BXUoTQRkm9g9WwTvBOw4AAAAAAAAAAAAAAIB7eSzGPqsPvNlv9wtv1l39wpPv\/eqFL581XnjyXvOFH2ftH568tD\/4kdof\/EjtD36k9gc\/UvuDH6n9wY\/U\/uBHan\/wI7U\/+JHaH\/xI7Q9+nHkxix+zeDGPH\/N4MYsXM3kxkxdzeTGTDwAAAAAAAAAAAAAAAAAAAPyLJ9xOIL0=",
+         "data":"eJzt0cEJgDAQRNHc1UrESoz9t2MuNhCFDPE9mOPCwi8FAAAAAAAAAAAAAAAAAIA\/W9rWzm0D\/p3d\/uL2+OwLHnpk0SOLHln0yKJHFj2y6JFFjyx6ZNEjy9lWO3cN+BcAAAAAAAAAAAAAAAAAAAAAAACAOdwAJQlJ",
          "encoding":"base64",
          "height":100,
-         "name":"ground",
-         "opacity":1,
+         "name":"shadow",
+         "opacity":0.24,
          "type":"tilelayer",
          "visible":true,
          "width":100,
@@ -30,7 +65,20 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt1MENADAMArHs3wzdMQiSPcF9YAYAAAAAAAAAAAAAAAAAALhm0wFQzoYyXjoACvgnAAAAAAAAAAAAAAAAAAAAAAAAAAAA6PABFmoCMA==",
+         "data":"eJzt1sEJACAMA8CM7sZ1BAU3EEUfd5BnIZBPEwAAAAAAAAAAAAAAAAAAAPhfT1rNvO7BsrtHrVsAAA7xXwEAAAAAAAAAAAAAAAAAAAAAAAAA3DEAP2EJfQ==",
+         "encoding":"base64",
+         "height":100,
+         "name":"tubes",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJzt1DERACAQA8EvsIoaEE0PAsLP7Cq4JqkCAAAAAAAAAAAAAAAAAAB+s9MB0JwNZax0AI850gXc\/BMAAAAAAAAAAAAAAAAAAAAAAAAAAAD0cAD4qgKZ",
          "encoding":"base64",
          "height":100,
          "name":"computers",
@@ -110,8 +158,117 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"collision",
+         "objects":[
+                {
+                 "height":32,
+                 "id":14,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":320,
+                 "x":1376,
+                 "y":1280
+                }, 
+                {
+                 "height":32,
+                 "id":16,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":448,
+                 "x":1312,
+                 "y":1536
+                }, 
+                {
+                 "height":288,
+                 "id":17,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":32,
+                 "x":1728,
+                 "y":1248
+                }, 
+                {
+                 "height":288,
+                 "id":19,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":32,
+                 "x":1312,
+                 "y":1248
+                }, 
+                {
+                 "height":32,
+                 "id":20,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":320,
+                 "x":1376,
+                 "y":1472
+                }, 
+                {
+                 "height":160,
+                 "id":21,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":32,
+                 "x":1664,
+                 "y":1312
+                }, 
+                {
+                 "height":32,
+                 "id":24,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":64,
+                 "x":1376,
+                 "y":1312
+                }, 
+                {
+                 "height":64,
+                 "id":25,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":64,
+                 "x":1376,
+                 "y":1376
+                }, 
+                {
+                 "height":32,
+                 "id":26,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":32,
+                 "x":1376,
+                 "y":1440
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":1,
+ "nextobjectid":27,
  "orientation":"orthogonal",
  "properties":
     {
@@ -234,6 +391,19 @@
          "name":"doors",
          "spacing":0,
          "tilecount":100,
+         "tileheight":32,
+         "tilewidth":32
+        }, 
+        {
+         "columns":1,
+         "firstgid":1125,
+         "image":"..\/textures\/player.png",
+         "imageheight":32,
+         "imagewidth":32,
+         "margin":0,
+         "name":"player_test",
+         "spacing":0,
+         "tilecount":1,
          "tileheight":32,
          "tilewidth":32
         }],
