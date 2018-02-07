@@ -39,8 +39,6 @@ public:
 	void setVisible(bool visible);
 	bool isVisible() const;
 
-	LayerSet& getLayerSet(sf::Uint32 id);
-
 protected:
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 

@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#5a1e1e" nextobjectid="1">
+<map version="1.0" tiledversion="1.1.2" orientation="orthogonal" renderorder="left-up" width="100" height="100" tilewidth="32" tileheight="32" infinite="0" backgroundcolor="#301010" nextobjectid="33">
  <properties>
-  <property name="test_bool" type="bool" value="true"/>
-  <property name="test_color" type="color" value="#ffff5500"/>
-  <property name="test_float" type="float" value="123.123"/>
-  <property name="test_int" type="int" value="123123123"/>
-  <property name="test_string" value="Hello"/>
+  <property name="collision_layer" value="collision"/>
+  <property name="player_layer" value="player"/>
  </properties>
  <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
   <image source="textures/spritesheet.png" width="1024" height="1024"/>
@@ -28,14 +25,34 @@
  <tileset firstgid="1025" name="doors" tilewidth="32" tileheight="32" tilecount="100" columns="10">
   <image source="textures/doors.png" width="320" height="320"/>
  </tileset>
- <layer name="ground" width="100" height="100">
+ <tileset firstgid="1125" name="player_test" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="textures/player.png" width="32" height="32"/>
+ </tileset>
+ <group name="planet">
+  <layer name="ground" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJztnI1x4yAQhV1KKohaoALTQkq5UlxKSqGUkybRDcfA/rELSN43s+OJJRZ4HyvkRM7j4XK5XC6Xy+VyuVwul8vlWlnPx+P1+RMf2Wser8r7L+BYLcr8Z7vX3v/3bA9mKfP+X8Q9tv3YrNj7/343Ps9FvH93PkIO4TfKn6Ew53N1Lk95PUj8NWdzcLkikytdmzpq5UPVNCN11MSl4rdWPtSMM5AyizDbcyz2Ovmj5Z22jOoiNMLCX3buVWtkwjVKyikRc1+2RhRZULwa1QeZSVzsnmtfHzP8sopQvF6qRha/l5KwDVwWR8QFamQQi1QJahtpn2weR8yuEeXrVL428+B6VGPRw4YccWKNGNRG6b9kzUK+1zipx4waMWKBsaHwqOUow5TJaB6DPvNh5/X0ZcojDrxmKbCoedHrr3QcrbFg6wHNP6pGOvfv0wNszlyPtAPqjzSOOKhGFHiM9NWSF3reiBoR8sjXm/NQknDvCBttn+ZEAvzR6q/sgx3WPAS1gfki8SshPDQDYoL2acmjszasPMJYU/qGzsF4gPmj0Z6u9DxC6eP5HjRnyCOIA3kNE3zFmID5LWrkU/65uDUvbr4yD9Qe8rd1DGpDHXf1WDSoEca+gXFIlbH3sKl51+IFeU4dh2is2jVC5EFZX6dX1DXH5cBZN5J+rsKjtfZKn1L22moj5VF7r5Xfgkfz2GAe0BhLn1LxGoh5KDnLtaHNA8oHhgEP6bw4PDi+UFiwfWPOZUUe0jlBPDiMU6PdUjyi8j1WB4+yXdr+X7+SvCXTMlcSesdZB+zQrBEGj5r/teO5h1wmNb9TERLvr8SDOnYqj/xnCQ+xL0Cf3HHM5BEI4669T+XB8aKXB8TJ4twRPKjri8KDO0fn0TdGyD8Oj6DAAurDedDqrtUGatvq8xY89nvn4x5aOr7E8KeWp+Y/JVdC8pZtsXM4+Ux5PB7Ne16qVy0eZVuMK8eLRPSZOn5oDmDEncVzzO+wqDx6vODmOkPsH3M9oWH0N6kRfmrwSFvneq6wuBKP3AeOb6259/LV4qAWE3hwPYA8X87PC/LAPJYwuQWXaLCXHyJcryQ8sDbWXLhjZofVM1jIfh42u2dzEyF32mjsyuOmPKJRbRwi3F+lrf/ehuoPlL8cR2tMgdGfaJzGzye2PqO3xob5geWi+ioNKQtS22hYG6eYz2H1zLVn7Y4IdGyLfddAw88AxGymS/Ag/F4R8nPmWtYcA5onDrhWnTL4vvntYuT3awX7OmXdaq3dJWL0952B3/Xeyter8FCskdtF/Nk7vjrsFanB5O15zPx/MhUm4WZM2HOZ/f99mPfA5n4o9svuO066VpVq1Mk0X2bF7NrIVTDR9jEAUTt3OIu4SG3kWmQ/gViZjG1FFqcWuu8KlXiLuihlvMfP4No8vtKeAUnIxHQtM+sJZXGF2sjVWScsb0bH1VicUrp21dZufsxZMHQw2a+zXwpcJLywdm/FItcALjU+0HEWh2Psd2GR6+QyiI04TgZ35VDTwJrxWmAor5mZtRNvtD9oq8bIipPXhFwtTj0x6nkQl8vlcrlcLpfL5XK5XC6Xy+XS0F9czy4m
+  </data>
+  </layer>
+  <layer name="rocks" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJzt2d0NgjAUBlBf3cJXtnAUR3EURnEUR7GNkCgGFWm5KuckxKDkpvn6B7LZAAAAAAAAAAAAAAAAAGuxTUcT3Yg/lzLeT7k+9cdpW6kta5ezHfk+H4f+/DZ/c6SOYa7Pxnz6bZeuPb5T09yZL8+FUmM+1Tnrk2lq5zW2DhLHHsMvW2r82kte6+6D8h7elq5do+Ya5HuqmmPXvJhmgXssvlB+Holuwy9oBp+lWKfmkV+82z4oOT/sGZ+plZv+mC9nWGLNKlWHq7E88/Pd8P9BuS+jew/VNvfnh0/qEK/vz+h2cGUdiyP7WN379ja6HTyyXwMAAAAAAAAAAAAAAAAAAACswwVNABKl
+  </data>
+  </layer>
+ </group>
+ <layer name="shadow" width="100" height="100" opacity="0.24">
   <data encoding="base64" compression="zlib">
-   eJzt0UEKwkAURMGsvf+BXUoTQRkm9g9WwTvBOw4AAAAAAAAAAAAAAIB7eSzGPqsPvNlv9wtv1l39wpPv/eqFL581XnjyXvOFH2ftH568tD/4kdof/EjtD36k9gc/UvuDH6n9wY/U/uBHan/wI7U/+JHaH/xI7Q9+nHkxix+zeDGPH/N4MYsXM3kxkxdzeTGTDwAAAAAAAAAAAAAAAAAAAPyLJ9xOIL0=
+   eJzt0cEJgDAQRNHc1UrESoz9t2MuNhCFDPE9mOPCwi8FAAAAAAAAAAAAAAAAAIA/W9rWzm0D/p3d/uL2+OwLHnpk0SOLHln0yKJHFj2y6JFFjyx6ZNEjy9lWO3cN+BcAAAAAAAAAAAAAAAAAAAAAAACAOdwAJQlJ
   </data>
  </layer>
  <layer name="base" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt101KA0EQBtCaxOA5/EnwGuJJjCcVF+rC3MKlnsEa7CZNFBwXPUp4Dz6maXpgqKILJgIAAAAAAAAAAAAAAAAAAPhPXjLr4XfZ/fVHH7HXzElmmJhVeYc+xtouMveZx/h6F56a/V05qx/91H4MWe9l5izX5yUXzf6iOasf/Yy13cR+Hi0z2yZ1/zT0Yw7tvHoo68syq67Kc+N+zKbW+Dk+59J17GfVqplfN6Efc2hrPM6lw1lV13ehH3OoNX6Ln/873kM/ehtrexvT/z/WoR89TbkX390TAAAAAAAAAAAAAAAAAAAAAAAAAOA4fADoFC1R
+  </data>
+ </layer>
+ <layer name="tubes" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1sEJACAMA8CM7sZ1BAU3EEUfd5BnIZBPEwAAAAAAAAAAAAAAAAAAAPhfT1rNvO7BsrtHrVsAAA7xXwEAAAAAAAAAAAAAAAAAAAAAAAAA3DEAP2EJfQ==
   </data>
  </layer>
  <layer name="computers" width="100" height="100">
@@ -50,21 +67,40 @@
   </data>
   </layer>
  </group>
- <group name="doors_group">
-  <layer name="doors_top_parts" width="100" height="100">
-   <data encoding="base64" compression="zlib">
-   eJzt1DEKACAMBMEIdvn/f31BChEhkJlyyysuAgAAAAAAAAAAAAAAAAAAAODN2nedv7LYveowmZ/qxU8BAAAAAAAAAAAAAAAAAAAAAAAAAABdHGgzAD0=
+ <layer name="doors_top_parts" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1DEKACAMA8AKbv7/v76gg4i04N2YMZBEAAAAAAAAAAAAAAAAAAAAANwZ8yznrZX0nuXwMz/Vi5+qYwu92AIAAAAAAAAAAAAAAAAAAAAAAAAAQL0N2yUAUQ==
   </data>
-  </layer>
-  <layer name="doors_bottom_parts" width="100" height="100">
-   <data encoding="base64" compression="zlib">
-   eJzt1KERACAMBMEIWkCn/y6pIALBDJPsypMvPgIAAAAAAAAAAAAAAAAAAACATva667yVxe5Vh8n81F/8FAAAAAAAAAAAAAAAAAAAAAAAAAAAkx0V2gC1
+ </layer>
+ <layer name="player" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1DENAAAIBLEfsIp/C2hgI6QdT8AlAAAAAAAAAAAAAAAAAAAAAHzStesAV/gUAAAAAAAAAAAAAAAAAAAAAAAAAABwxQBQTwE8
   </data>
-  </layer>
-  <layer name="doors_horizontal" width="100" height="100">
-   <data encoding="base64" compression="zlib">
+ </layer>
+ <objectgroup name="doors"/>
+ <layer name="doors_bottom_parts" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1LENACAMA7AOvMDM/19yQQcGREXtMWOkJAIAAAAAAAAAAAAAAAAAAACAn8xxlnPXSnrPcujMT9Xip96xhVpsAQAAAAAAAAAAAAAAAAAAAAAAAAB62iCvAPE=
+  </data>
+ </layer>
+ <layer name="doors_horizontal" width="100" height="100">
+  <data encoding="base64" compression="zlib">
    eJzt06ENACAUQ8GKvwyw/34gsSgguUvqa14CAAAAAAAAAAAAAAAAAAAAcK5V0tdG3X4C79n70AoAAAAAAAAAAAAAAAAAAAAAAAAAAAD8ZwJFewGf
   </data>
-  </layer>
- </group>
+ </layer>
+ <objectgroup name="collision">
+  <object id="14" type="wall" x="1376" y="1280" width="320" height="32"/>
+  <object id="16" type="wall" x="1312" y="1216" width="448" height="32"/>
+  <object id="17" type="wall" x="1728" y="1248" width="32" height="288"/>
+  <object id="19" type="wall" x="1312" y="1248" width="32" height="288"/>
+  <object id="20" type="wall" x="1376" y="1472" width="320" height="32"/>
+  <object id="21" type="wall" x="1664" y="1312" width="32" height="160"/>
+  <object id="24" type="wall" x="1376" y="1312" width="64" height="32"/>
+  <object id="25" type="wall" x="1376" y="1376" width="64" height="64"/>
+  <object id="27" type="wall" x="1312" y="1536" width="448" height="32"/>
+  <object id="28" x="1472" y="1376" width="160" height="32"/>
+  <object id="30" type="wall" x="1568" y="1312" width="64" height="32"/>
+  <object id="31" x="1376" y="1440" width="32" height="32"/>
+  <object id="32" x="1536" y="1408" width="32" height="32"/>
+ </objectgroup>
 </map>
