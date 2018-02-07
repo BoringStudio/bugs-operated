@@ -43,9 +43,7 @@ void main()
 
 	m_scanlinesShader = ResourceManager::get<sf::Shader>("shader");
 
-	uvec2 windowSize = Core::getWindow().getSize();
-	m_frameBuffer.create(windowSize.x, windowSize.y);
-	onResize(vec2(windowSize));
+	onResize(vec2(Core::getWindow().getSize()));
 }
 
 void Game::onClose()
@@ -59,19 +57,21 @@ void Game::onUpdate(const float dt)
 		return;
 	}
 
+	vec2 vector;
 	if (Input::getKey(Key::A)) {
-		m_translate += vec2(150.0f, 0.0f) * dt;
+		vector += vec2(1.0f, 0.0f);
 	}
 	else if (Input::getKey(Key::D)) {
-		m_translate -= vec2(150.0f, 0.0f) * dt;
+		vector -= vec2(1.0f, 0.0f);
 	}
 
 	if (Input::getKey(Key::W)) {
-		m_translate += vec2(0.0f, 150.0f) * dt;
+		vector += vec2(0.0f, 1.0f);
 	}
 	else if (Input::getKey(Key::S)) {
-		m_translate -= vec2(0.0f, 150.0f) * dt;
+		vector -= vec2(0.0f, 1.0f);
 	}
+	m_translate += vector * 150.0f * dt;
 
 	vec2 halfSize = vec2(Core::getWindow().getSize()) * 0.5f;
 	rect windowBounds(halfSize * 0.5f - m_translate, halfSize);
@@ -104,8 +104,9 @@ void Game::onResize(const vec2& windowSize)
 	Core::getWindow().setView(sf::View(halfSize, windowSize));
 
 	// framebuffer initialization
+	m_frameBuffer.create(windowSize.x, windowSize.y);
 	m_frameRectangle.setSize(windowSize);
-	m_frameRectangle.setTexture(&m_frameBuffer.getTexture());
+	m_frameRectangle.setTexture(&m_frameBuffer.getTexture(), true);
 
 	m_frameBuffer.setView(sf::View(halfSize, halfSize));
 }
