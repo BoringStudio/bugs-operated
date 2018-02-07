@@ -41,6 +41,8 @@ void main()
 	m_map = ResourceManager::get<Map>("planet_base");
 	m_translate = vec2(-1000.0f, -1000.0f);
 
+	m_scanlinesShader = ResourceManager::get<sf::Shader>("shader");
+
 	uvec2 windowSize = Core::getWindow().getSize();
 	m_frameBuffer.create(windowSize.x, windowSize.y);
 	onResize(vec2(windowSize));
@@ -89,7 +91,7 @@ void Game::onDraw(const float dt)
 
 
 	// render texture
-	sf::Shader::bind(ResourceManager::get<sf::Shader>("shader"));
+	sf::Shader::bind(m_scanlinesShader);
 	Core::getWindow().draw(m_frameRectangle);
 	sf::Shader::bind(nullptr);
 }

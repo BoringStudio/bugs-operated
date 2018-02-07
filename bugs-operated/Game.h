@@ -25,4 +25,6 @@ private:
 
 	sf::RectangleShape m_frameRectangle;
 	sf::RenderTexture m_frameBuffer;
+
+	sf::Shader* m_scanlinesShader;
 };
