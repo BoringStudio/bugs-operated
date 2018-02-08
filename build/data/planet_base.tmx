@@ -50,6 +50,18 @@
    eJzt101KA0EQBtCaxOA5/EnwGuJJjCcVF+rC3MKlnsEa7CZNFBwXPUp4Dz6maXpgqKILJgIAAAAAAAAAAAAAAAAAAPhPXjLr4XfZ/fVHH7HXzElmmJhVeYc+xtouMveZx/h6F56a/V05qx/91H4MWe9l5izX5yUXzf6iOasf/Yy13cR+Hi0z2yZ1/zT0Yw7tvHoo68syq67Kc+N+zKbW+Dk+59J17GfVqplfN6Efc2hrPM6lw1lV13ehH3OoNX6Ln/873kM/ehtrexvT/z/WoR89TbkX390TAAAAAAAAAAAAAAAAAAAAAAAAAOA4fADoFC1R
   </data>
  </layer>
+ <group name="solar panels">
+  <layer name="solar_panels_base" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJztwzENAAAIA7ChHeMI4OIlbdIEAAAAAAAAAAAAAAAAAAAAAAAAAG66dgAAAAAAAAAAAAAAAAAAAAAAAIAvBkJjApU=
+  </data>
+  </layer>
+  <layer name="solar_panels" width="100" height="100">
+   <data encoding="base64" compression="zlib">
+   eJzt0bEJACAQA8B3VJ1Endwv3UDRO0iRLpAIAAAAAAAAAAAAAAAAAAAAAAAAgPvVEtG2ZO+nN/1s5Adzy/AHAAAAAAAAAAAAAAAAAAAAAAAA8JAFdhIFew==
+  </data>
+  </layer>
+ </group>
  <layer name="tubes" width="100" height="100">
   <data encoding="base64" compression="zlib">
    eJzt1sEJACAMA8CM7sZ1BAU3EEUfd5BnIZBPEwAAAAAAAAAAAAAAAAAAAPhfT1rNvO7BsrtHrVsAAA7xXwEAAAAAAAAAAAAAAAAAAAAAAAAA3DEAP2EJfQ==
@@ -74,7 +86,7 @@
  </layer>
  <layer name="player" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1DENAAAIBLEfsIp/C2hgI6QdT8AlAAAAAAAAAAAAAAAAAAAAAHzStesAV/gUAAAAAAAAAAAAAAAAAAAAAAAAAABwxQBQTwE8
+   eJztzjENAAAIA7AdWMW/BURAwtMqaAIAAAAAAAAAAAAAAAAAAABwo+t7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7AyKuAGo=
   </data>
  </layer>
  <objectgroup name="doors"/>

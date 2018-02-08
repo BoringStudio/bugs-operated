@@ -64,6 +64,41 @@
          "y":0
         }, 
         {
+         "layers":[
+                {
+                 "compression":"zlib",
+                 "data":"eJztwzENAAAIA7ChHeMI4OIlbdIEAAAAAAAAAAAAAAAAAAAAAAAAAG66dgAAAAAAAAAAAAAAAAAAAAAAAIAvBkJjApU=",
+                 "encoding":"base64",
+                 "height":100,
+                 "name":"solar_panels_base",
+                 "opacity":1,
+                 "type":"tilelayer",
+                 "visible":true,
+                 "width":100,
+                 "x":0,
+                 "y":0
+                }, 
+                {
+                 "compression":"zlib",
+                 "data":"eJzt0bEJACAQA8B3VJ1Endwv3UDRO0iRLpAIAAAAAAAAAAAAAAAAAAAAAAAAgPvVEtG2ZO+nN\/1s5Adzy\/AHAAAAAAAAAAAAAAAAAAAAAAAA8JAFdhIFew==",
+                 "encoding":"base64",
+                 "height":100,
+                 "name":"solar_panels",
+                 "opacity":1,
+                 "type":"tilelayer",
+                 "visible":true,
+                 "width":100,
+                 "x":0,
+                 "y":0
+                }],
+         "name":"solar panels",
+         "opacity":1,
+         "type":"group",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "compression":"zlib",
          "data":"eJzt1sEJACAMA8CM7sZ1BAU3EEUfd5BnIZBPEwAAAAAAAAAAAAAAAAAAAPhfT1rNvO7BsrtHrVsAAA7xXwEAAAAAAAAAAAAAAAAAAAAAAAAA3DEAP2EJfQ==",
          "encoding":"base64",
@@ -78,7 +113,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt1DERACAQA8EvsIoaEE0PAsLP7Cq4JqkCAAAAAAAAAAAAAAAAAAB+s9MB0JwNZax0AI850gXc\/BMAAAAAAAAAAAAAAAAAAAAAAAAAAAD0cAD4qgKZ",
+         "data":"eJzt1MENADAMArHs3wzdMQiSPcF9YAYAAAAAAAAAAAAAAAAAALhm0wFQzoYyXjoACvgnAAAAAAAAAAAAAAAAAAAAAAAAAAAA6PABFmoCMA==",
          "encoding":"base64",
          "height":100,
          "name":"computers",
@@ -112,50 +147,64 @@
          "y":0
         }, 
         {
-         "layers":[
-                {
-                 "compression":"zlib",
-                 "data":"eJzt1DEKACAMBMEIdvn\/f31BChEhkJlyyysuAgAAAAAAAAAAAAAAAAAAAODN2nedv7LYveowmZ\/qxU8BAAAAAAAAAAAAAAAAAAAAAAAAAABdHGgzAD0=",
-                 "encoding":"base64",
-                 "height":100,
-                 "name":"doors_top_parts",
-                 "opacity":1,
-                 "type":"tilelayer",
-                 "visible":true,
-                 "width":100,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "compression":"zlib",
-                 "data":"eJzt1KERACAMBMEIWkCn\/y6pIALBDJPsypMvPgIAAAAAAAAAAAAAAAAAAACATva667yVxe5Vh8n81F\/8FAAAAAAAAAAAAAAAAAAAAAAAAAAAkx0V2gC1",
-                 "encoding":"base64",
-                 "height":100,
-                 "name":"doors_bottom_parts",
-                 "opacity":1,
-                 "type":"tilelayer",
-                 "visible":true,
-                 "width":100,
-                 "x":0,
-                 "y":0
-                }, 
-                {
-                 "compression":"zlib",
-                 "data":"eJzt06ENACAUQ8GKvwyw\/34gsSgguUvqa14CAAAAAAAAAAAAAAAAAAAAcK5V0tdG3X4C79n70AoAAAAAAAAAAAAAAAAAAAAAAAAAAAD8ZwJFewGf",
-                 "encoding":"base64",
-                 "height":100,
-                 "name":"doors_horizontal",
-                 "opacity":1,
-                 "type":"tilelayer",
-                 "visible":true,
-                 "width":100,
-                 "x":0,
-                 "y":0
-                }],
-         "name":"doors_group",
+         "compression":"zlib",
+         "data":"eJzt1DEKACAMA8AKbv7\/v76gg4i04N2YMZBEAAAAAAAAAAAAAAAAAAAAANwZ8yznrZX0nuXwMz\/Vi5+qYwu92AIAAAAAAAAAAAAAAAAAAAAAAAAAQL0N2yUAUQ==",
+         "encoding":"base64",
+         "height":100,
+         "name":"doors_top_parts",
          "opacity":1,
-         "type":"group",
+         "type":"tilelayer",
          "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJztzjENAAAIA7AdWMW\/BURAwtMqaAIAAAAAAAAAAAAAAAAAAABwo+t7AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7AyKuAGo=",
+         "encoding":"base64",
+         "height":100,
+         "name":"player",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"doors",
+         "objects":[],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJzt1LENACAMA7AOvMDM\/19yQQcGREXtMWOkJAIAAAAAAAAAAAAAAAAAAACAn8xxlnPXSnrPcujMT9Xip96xhVpsAQAAAAAAAAAAAAAAAAAAAAAAAAB62iCvAPE=",
+         "encoding":"base64",
+         "height":100,
+         "name":"doors_bottom_parts",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJzt06ENACAUQ8GKvwyw\/34gsSgguUvqa14CAAAAAAAAAAAAAAAAAAAAcK5V0tdG3X4C79n70AoAAAAAAAAAAAAAAAAAAAAAAAAAAAD8ZwJFewGf",
+         "encoding":"base64",
+         "height":100,
+         "name":"doors_horizontal",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":100,
          "x":0,
          "y":0
         }, 
@@ -183,7 +232,7 @@
                  "visible":true,
                  "width":448,
                  "x":1312,
-                 "y":1536
+                 "y":1216
                 }, 
                 {
                  "height":288,
@@ -253,14 +302,58 @@
                 }, 
                 {
                  "height":32,
-                 "id":26,
+                 "id":27,
                  "name":"",
                  "rotation":0,
                  "type":"wall",
                  "visible":true,
+                 "width":448,
+                 "x":1312,
+                 "y":1536
+                }, 
+                {
+                 "height":32,
+                 "id":28,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":160,
+                 "x":1472,
+                 "y":1376
+                }, 
+                {
+                 "height":32,
+                 "id":30,
+                 "name":"",
+                 "rotation":0,
+                 "type":"wall",
+                 "visible":true,
+                 "width":64,
+                 "x":1568,
+                 "y":1312
+                }, 
+                {
+                 "height":32,
+                 "id":31,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
                  "width":32,
                  "x":1376,
                  "y":1440
+                }, 
+                {
+                 "height":32,
+                 "id":32,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1536,
+                 "y":1408
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -268,23 +361,17 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":27,
+ "nextobjectid":33,
  "orientation":"orthogonal",
  "properties":
     {
-     "test_bool":true,
-     "test_color":"#ffff5500",
-     "test_float":123.123,
-     "test_int":123123123,
-     "test_string":"Hello"
+     "collision_layer":"collision",
+     "player_layer":"player"
     },
  "propertytypes":
     {
-     "test_bool":"bool",
-     "test_color":"color",
-     "test_float":"float",
-     "test_int":"int",
-     "test_string":"string"
+     "collision_layer":"string",
+     "player_layer":"string"
     },
  "renderorder":"left-up",
  "tiledversion":"1.1.2",
