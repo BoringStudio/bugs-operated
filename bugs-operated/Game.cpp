@@ -10,33 +10,9 @@ void Game::onInit()
 {
 	ResourceManager::bind<MapFactory>("planet_base", "maps/planet_base.json");
 
-	std::string vertexShader = 
-R"(void main()
-{
-    gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-    gl_TexCoord[0] = gl_TextureMatrix[0] * gl_MultiTexCoord0;
-    gl_FrontColor = gl_Color;
-}
-)";
-
-	std::string fragmentShader =
-R"(uniform sampler2D texture;
-
-void main()
-{
-	vec4 color = texture2D(texture, gl_TexCoord[0].xy);
-	if (mod(gl_FragCoord.y, 2.0) >= 1) {
-		color *= vec4(0.9);
-	}
-    else {
-        color *= vec4(1.05);
-	}
-
-    gl_FragColor = color * gl_Color;
-}
-)";
-
-	ResourceManager::bind<ShaderFactory>("shader", ShaderFactory::FromString{ vertexShader }, ShaderFactory::FromString{ fragmentShader });
+	ResourceManager::bind<ShaderFactory>("shader", 
+		ShaderFactory::FromFile{ "shaders/quad.vert" }, 
+		ShaderFactory::FromFile{ "shaders/scanlines.frag" });
 
 	m_map = ResourceManager::get<Map>("planet_base");
 	m_translate = vec2(-1000.0f, -1000.0f);
@@ -104,7 +80,7 @@ void Game::onResize(const vec2& windowSize)
 	Core::getWindow().setView(sf::View(halfSize, windowSize));
 
 	// framebuffer initialization
-	m_frameBuffer.create(windowSize.x, windowSize.y);
+	m_frameBuffer.create(static_cast<unsigned int>(windowSize.x), static_cast<unsigned int>(windowSize.y));
 	m_frameRectangle.setSize(windowSize);
 	m_frameRectangle.setTexture(&m_frameBuffer.getTexture(), true);
 
