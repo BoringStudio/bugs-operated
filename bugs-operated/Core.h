@@ -13,6 +13,7 @@
 #include "SoundBufferFactory.h"
 #include "AnimationFactory.h"
 #include "TextureFactory.h"
+#include "ShaderFactory.h"
 #include "MusicFactory.h"
 #include "FontFactory.h"
 #include "MapFactory.h"

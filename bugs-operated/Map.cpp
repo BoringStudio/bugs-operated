@@ -65,6 +65,14 @@ void LayerSet::cull(const rect & bounds)
 	if (m_visiblePatchEnd.y > static_cast<int>(m_patchCount.y)) m_visiblePatchEnd.y = m_patchCount.y;
 
 	m_visiblePatchEnd += m_visiblePatchStart;
+
+	if (m_visiblePatchEnd.x >= m_patchCount.x) {
+		m_visiblePatchEnd.x = m_patchCount.x - 1;
+	}
+
+	if (m_visiblePatchEnd.y >= m_patchCount.y) {
+		m_visiblePatchEnd.y = m_patchCount.y - 1;
+	}
 }
 
 void Layer::cull(const rect & bounds)
