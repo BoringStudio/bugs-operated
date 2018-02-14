@@ -1,6 +1,5 @@
 #include "Core.h"
 
-#include "Intro.h"
 #include "Game.h"
 
 /*

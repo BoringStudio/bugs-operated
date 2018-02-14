@@ -68,6 +68,9 @@
     <ClCompile Include="ShaderFactory.cpp">
       <Filter>Core\Resources\Shader</Filter>
     </ClCompile>
+    <ClCompile Include="MapObject.cpp">
+      <Filter>Core\Resources\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -185,6 +188,9 @@
     </ClInclude>
     <ClInclude Include="ShaderFactory.h">
       <Filter>Core\Resources\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="MapObject.h">
+      <Filter>Core\Resources\Map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

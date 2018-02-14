@@ -70,6 +70,11 @@ private:
 		std::vector<sf::Uint32> data;
 	};
 
+	struct MapObjectInfo
+	{
+		
+	};
+
 	struct MapInfo
 	{
 		MapInfo() {}

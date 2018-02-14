@@ -6,6 +6,8 @@
 #include "SceneManager.h"
 #include "Map.h"
 
+#include <UDT/udt.h>
+
 class Game : public Scene
 {
 public:
@@ -27,4 +29,6 @@ private:
 	sf::RenderTexture m_frameBuffer;
 
 	sf::Shader* m_scanlinesShader;
+
+	UDTSOCKET m_socket;
 };

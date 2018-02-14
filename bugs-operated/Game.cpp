@@ -8,6 +8,21 @@
 
 void Game::onInit()
 {
+	m_socket = UDT::socket(AF_INET, SOCK_STREAM, 0);
+
+	sockaddr_in address;
+	address.sin_family = AF_INET;
+	address.sin_port = htons(7742);
+	address.sin_addr.S_un.S_addr = INADDR_ANY;
+	memset(&(address.sin_zero), '\0', 8);
+
+	if (UDT::ERROR == UDT::bind(m_socket, (sockaddr*)&address, sizeof(address)))
+	{
+		Log::write("bind:", UDT::getlasterror().getErrorMessage());
+	}
+
+	UDT::listen(m_socket, 10);
+
 	ResourceManager::bind<MapFactory>("planet_base", "maps/planet_base.json");
 
 	ResourceManager::bind<ShaderFactory>("shader", 
@@ -24,6 +39,7 @@ void Game::onInit()
 
 void Game::onClose()
 {
+	UDT::close(m_socket);
 }
 
 void Game::onUpdate(const float dt)
